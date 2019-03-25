@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
 
     public static GameManager gameManagerInstance;
 
+    public enum GameMode { freeForAll, oddBall};
+
     private void Awake()
     {
         if (gameManagerInstance != null)
