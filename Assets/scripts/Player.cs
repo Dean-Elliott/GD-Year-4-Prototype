@@ -14,13 +14,13 @@ public class Player : MonoBehaviour
     public BaseCharacter activeCharacterInSceneCharacterScript;
 
     //HACK
-    public void InitializeCharacter()
+    public void InitializeCharacter(GameMode activeGameMode)
     {
         activeCharacterInSceneCharacterScript = activeCharacterInScene.GetComponent<BaseCharacter>();
         activeCharacterInSceneCharacterScript.inputButton = inputButton;
         activeCharacterInSceneCharacterScript.myPlayerInfo = this;
-
         activeCharacterInScene.GetComponent<PlayerVisuals>().myPlayerInfo = this;
         activeCharacterInScene.GetComponentInChildren<HitBox>().myPlayerID = playerID;
+        activeCharacterInScene.GetComponentInChildren<HitBox>().activeGameMode = activeGameMode;
     }
 }

@@ -34,16 +34,10 @@ public abstract class GameMode : MonoBehaviour
 
     }
 
-    private void OnDisable()
+    public void SpawnPlayer(int playerToSpawnID, Vector2 spawnLocation)
     {
-        //HACK
-        foreach (KeyValuePair<int, Player> player in players)
-        {
-            if (player.Value.activeCharacterInScene != null)
-            {
-                player.Value.activeCharacterInScene.GetComponentInChildren<HitBox>().OnPlayerCollision.RemoveListener(CharacterCollision);
-            }
-        }
+        players[playerToSpawnID].activeCharacterInScene = Instantiate(players[playerToSpawnID].characterSelectionPrefab, spawnLocation, Quaternion.identity);
+        players[playerToSpawnID].InitializeCharacter(this);
     }
 
     public virtual void CharacterCollision(int attackerPlayerID, int VictimPlayerID)

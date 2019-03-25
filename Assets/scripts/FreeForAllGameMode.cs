@@ -6,7 +6,6 @@ public class FreeForAllGameMode : GameMode
 {
     [Header("specific to this mode")]
     public int[] playerScores;
-    public HitBox hitboxPlayerCollision;
 
     public GameObject[] initialSpawnPoints;
     public GameObject[] spawnPoints;
@@ -23,37 +22,21 @@ public class FreeForAllGameMode : GameMode
         {
             if (player.Value.activeCharacterInScene == null)
             {
-                player.Value.activeCharacterInScene = Instantiate(player.Value.characterSelectionPrefab, initialSpawnPoints[player.Value.playerID].transform.position, Quaternion.identity);
-                player.Value.InitializeCharacter();
-            }
-        }
-
-        //HACK
-        // subscribe to collision events
-        foreach (KeyValuePair<int, Player> player in players)
-        {
-            if (player.Value.activeCharacterInScene != null)
-            {
-                player.Value.activeCharacterInScene.GetComponentInChildren<HitBox>().OnPlayerCollision.AddListener(CharacterCollision);
+                SpawnPlayer(player.Key, initialSpawnPoints[player.Key].transform.position);
             }
         }
     }
 
     public void RespawnPlayer(int PlayerToRespawnID)
     {
-        GameObject furthestAwaySpawnPoint = FindNodeFarthestFromAnyActivePlayer(spawnPoints);
-        players[PlayerToRespawnID].activeCharacterInScene = Instantiate(players[PlayerToRespawnID].characterSelectionPrefab, furthestAwaySpawnPoint.transform.position, Quaternion.identity);
-        players[PlayerToRespawnID].InitializeCharacter();
-        //HACK
-        // subscribe to collision events
-        players[PlayerToRespawnID].activeCharacterInScene.GetComponentInChildren<HitBox>().OnPlayerCollision.AddListener(CharacterCollision);
+        Vector2 furthestAwaySpawnPoint = FindNodeFarthestFromAnyActivePlayer(spawnPoints).transform.position;
+        SpawnPlayer(PlayerToRespawnID, furthestAwaySpawnPoint);
     }
+
 
     public override void CharacterCollision(int attackerPlayerID, int VictimPlayerID)
     {
         playerScores[attackerPlayerID] += 1;
-
-        players[VictimPlayerID].activeCharacterInScene.GetComponentInChildren<HitBox>().OnPlayerCollision.RemoveListener(CharacterCollision);
         Destroy(players[VictimPlayerID].activeCharacterInScene);
 
         RespawnPlayer(VictimPlayerID);
