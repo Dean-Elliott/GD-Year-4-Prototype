@@ -110,12 +110,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9be58c69f2c479649bdcc8bcb178955d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  OnPlayerCollision:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: OnPlayerCollisionEvent, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-      PublicKeyToken=null
   myPlayerID: 0
+  activeGameMode: {fileID: 0}
 --- !u!1 &6243513430498673591
 GameObject:
   m_ObjectHideFlags: 0
@@ -748,7 +744,7 @@ GameObject:
   - component: {fileID: 8099216747885598590}
   m_Layer: 0
   m_Name: spr_disc outline (4)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -826,7 +822,7 @@ GameObject:
   - component: {fileID: 8099216747889582046}
   m_Layer: 0
   m_Name: button outline
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -863,7 +859,7 @@ GameObject:
   - component: {fileID: 8099216748262851103}
   m_Layer: 0
   m_Name: spr_disc outline (1)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -942,7 +938,7 @@ GameObject:
   - component: {fileID: 8099216748729222896}
   m_Layer: 0
   m_Name: spr_disc outline
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1021,7 +1017,7 @@ GameObject:
   - component: {fileID: 8099216749025171247}
   m_Layer: 0
   m_Name: spr_disc outline (3)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1100,7 +1096,7 @@ GameObject:
   - component: {fileID: 8099216749030508080}
   m_Layer: 0
   m_Name: spr_disc outline (2)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1179,7 +1175,7 @@ GameObject:
   - component: {fileID: 8099216749855427281}
   m_Layer: 0
   m_Name: spr_disc outline (5)
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

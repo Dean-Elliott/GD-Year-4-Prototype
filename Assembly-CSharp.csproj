@@ -71,6 +71,8 @@
     <Compile Include="Assets\scripts\GameMode.cs" />
     <Compile Include="Assets\scripts\GameModeSettings.cs" />
     <Compile Include="Assets\scripts\HitBox.cs" />
+    <Compile Include="Assets\scripts\KingOfTheHillCapturePoint.cs" />
+    <Compile Include="Assets\scripts\KingOfTheHillGameMode.cs" />
     <Compile Include="Assets\scripts\MatchManager.cs" />
     <Compile Include="Assets\scripts\Player.cs" />
     <Compile Include="Assets\scripts\PlayerController.cs" />
