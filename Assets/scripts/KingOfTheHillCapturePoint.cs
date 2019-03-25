@@ -6,15 +6,9 @@ public class KingOfTheHillCapturePoint : MonoBehaviour
 {
     public KingOfTheHillGameMode activeGameMode;
 
-    private void OnEnable()
-    {
-        activeGameMode = GetComponentInParent<KingOfTheHillGameMode>();
-    }
-
-
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("player"))
+        if (collision.CompareTag("Player"))
         {
             activeGameMode.PlayerInCaptureZone(collision.gameObject);
         }
