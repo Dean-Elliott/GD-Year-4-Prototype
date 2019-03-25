@@ -1,4 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/basic character.unity
+- path: C:/Users/elliodea/Desktop/one button fighter base character/one button fighter
+    base character/Assets/Scenes/combat variant.unity
   isLoaded: 1
   isActive: 1
