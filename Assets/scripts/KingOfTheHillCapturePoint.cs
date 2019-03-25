@@ -16,7 +16,7 @@ public class KingOfTheHillCapturePoint : MonoBehaviour
     {
         if (collision.CompareTag("player"))
         {
-            //activeGameMode.
+            activeGameMode.PlayerInCaptureZone(collision.gameObject);
         }
     }
 }

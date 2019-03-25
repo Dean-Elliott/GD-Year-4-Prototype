@@ -42,7 +42,7 @@ public class KingOfTheHillGameMode : GameMode
     }
 
 
-    public void PlayerInCaptureZone()
+    public void PlayerInCaptureZone(GameObject playerInZone)
     {
 
     }
