@@ -141,7 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38c4384c4d04577438c5e13fefe5185b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonPrefab: {fileID: 8554669355281018066, guid: f2abec93a7be1e743999db7c50bec644,
+  buttonPrefab: {fileID: 8554669355281018066, guid: d0bce7f30b5186941bb8b06605081213,
     type: 3}
   levelButtonPanel: {fileID: 281116277}
   modeSelectCanvas: {fileID: 130521654}
