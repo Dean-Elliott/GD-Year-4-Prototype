@@ -10,6 +10,12 @@ public class GameManager : MonoBehaviour
 
     public static GameManager gameManagerInstance;
 
+
+
+    /// Aushton Changes Beging
+
+    public enum GameMode { freeForAll, oddBall }
+    /// Aushton Changes End
     private void Awake()
     {
         if (gameManagerInstance != null)
