@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     [Header("movement")]
     public float rotationSpeed;
     public float dashSpeed;
+    public float knockbackRecoveryTime = .1f;
 
     [Header("visuals")]
     public SpriteRenderer buttonIndicatorSprite;
@@ -18,18 +19,37 @@ public class PlayerController : MonoBehaviour
     public SpriteRenderer[] baseColourSprites;
     public SpriteRenderer[] secondaryColourSprites;
     public GameObject weapon;
+    public SpriteRenderer weaponSprite;
 
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
     public MatchManager myMatchManager;
     float rotationDirecion = 1f;
     bool buttonDownInput;
     bool buttonUpInput;
     bool buttonInput;
 
+    public GameObject rotatedChild;
+
+    public bool isLethal = true;
+
+    //
+    public bool applyKnockback;
+    public GameObject knockbackCollisionObject;
+    //
+
+    float knockbacktimer;
+    float minTimeBetweenKnockbacks = 0.1f;
+    float knockbackRecoveryTimer = 999999f;
+
+    public bool alwaysLethal;
+    public float lethalityWindow = 0.1f;
+    float lethalityWindowTimer = 0f;
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         buttonIndicatorSprite.enabled = false;
+        rb.centerOfMass = Vector3.zero;
     }
 
     private void Start()
@@ -60,58 +80,74 @@ public class PlayerController : MonoBehaviour
             buttonUpInput = true;
         }
         buttonInput = Input.GetButton(inputButton);
+
+        print(isLethal);
+        //update weapon sprite
+        if(isLethal == true)
+        {
+            weaponSprite.color = new Color(weaponSprite.color.r, weaponSprite.color.g, weaponSprite.color.b, 1f);
+        }
+        if (isLethal == false)
+        {
+            weaponSprite.color = new Color(weaponSprite.color.r, weaponSprite.color.g, weaponSprite.color.b, 0.5f);
+            //weaponSprite.color = Color.black;
+        }
     }
-
-    //
-    //float heldUpTimer = 0f;
-    //float heldDownTimer = 0f;
-    //public float heldUpActivationTime = 1f;
-    //public float heldDownActivationTime = 1f;
-    //public void swapGravity()
-    //{
-    //    if (buttonDownInput == false && buttonUpInput == false && buttonInput == false)
-    //    {
-    //        heldUpTimer += Time.fixedDeltaTime;
-    //    }
-    //    if(heldUpTimer >= heldDownActivationTime)
-    //    {
-    //        rb.gravityScale *= -1f;
-    //        heldUpTimer = 0f;
-    //    }
-
-    //    if (buttonDownInput)
-    //    {
-    //        heldUpTimer = 0f;
-    //    }
-    //}
-    //
 
     private void FixedUpdate()
     {
         //swapGravity();
 
+        //knockback timer temp
+        knockbacktimer += Time.fixedDeltaTime;
+        knockbackRecoveryTimer += Time.fixedDeltaTime;
+        if(knockbacktimer > minTimeBetweenKnockbacks)
+        {
+            if (applyKnockback == true)
+            {
+                knockbackRecoveryTimer = 0f;
+                print("kockback executed " + myID);
+                //change force to be dependent on impact velo and mass, not dash. improve vector accuracy.
+                rb.velocity = Vector2.zero;
+                rb.AddForce((transform.position - knockbackCollisionObject.transform.position).normalized * dashSpeed, ForceMode2D.Impulse);
+                applyKnockback = false;
+            }
+            knockbacktimer = 0f;
+            //isLethal = true;
+        }
+
+        
+
         //button in HELD UP state
         if (buttonDownInput == false && buttonInput == false)
         {
-            rb.MoveRotation(rb.rotation + (rotationSpeed * Time.fixedDeltaTime * rotationDirecion));
+            //rb.MoveRotation(rb.rotation + (rotationSpeed * Time.fixedDeltaTime * rotationDirecion));
+            rotatedChild.transform.Rotate(new Vector3(0, 0, (rotationSpeed * Time.fixedDeltaTime * rotationDirecion)));
+            isLethal = false;
         }
 
         //button in HELD DOWN state
         if (buttonInput)
         {
-
+            isLethal = true;
         }
 
         //button down this frame
         if (buttonDownInput)
         {
-            rb.velocity = Vector2.zero;
-            rb.AddForce(transform.up * dashSpeed, ForceMode2D.Impulse);
+            if (knockbackRecoveryTimer > knockbackRecoveryTime)
+            {
+                rb.velocity = Vector2.zero;
+            }
+            //rb.AddForce(transform.up * dashSpeed, ForceMode2D.Impulse);
+            rb.AddForce(rotatedChild.transform.up * dashSpeed, ForceMode2D.Impulse);
             buttonIndicatorSprite.enabled = true;
 
             Instantiate(dustParticlesPrefab, transform.position, Quaternion.identity);
 
             buttonDownInput = false;
+
+            isLethal = true;
         }
 
         //button up this frame
@@ -127,21 +163,8 @@ public class PlayerController : MonoBehaviour
             }
             buttonIndicatorSprite.enabled = false;
             buttonUpInput = false;
-        }
-    }
 
-    //hardcoded, fix this
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("pointy1") && myID == 2)
-        {
-            rb.velocity = Vector2.zero;
-            myMatchManager.teleportPlayer(this.gameObject);
-        }
-        if (collision.CompareTag("pointy2") && myID == 1)
-        {
-            rb.velocity = Vector2.zero;
-            myMatchManager.teleportPlayer(this.gameObject);
+            isLethal = false;
         }
     }
 }

@@ -6,6 +6,8 @@ TagManager:
   tags:
   - pointy1
   - pointy2
+  - weapon
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX
@@ -15,11 +17,11 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - armour
+  - weapon non trigger
+  - walls
+  - player
+  - weapon trigger
   - 
   - 
   - 
