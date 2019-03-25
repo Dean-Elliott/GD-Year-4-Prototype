@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class KingOfTheHillCapturePoint : MonoBehaviour
 {
-    public GameMode activeGameMode;
+    public KingOfTheHillGameMode activeGameMode;
 
     private void OnEnable()
     {
@@ -16,7 +16,7 @@ public class KingOfTheHillCapturePoint : MonoBehaviour
     {
         if (collision.CompareTag("player"))
         {
-            //colli
+            //activeGameMode.
         }
     }
 }
