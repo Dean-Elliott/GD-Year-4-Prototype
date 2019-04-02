@@ -10,21 +10,9 @@ public class FreeForAllGameMode : GameMode
     public GameObject[] initialSpawnPoints;
     public GameObject[] spawnPoints;
 
-    public override void AtEndOfOnEnableOverride()
+    public override void AtEndOfOnEnable()
     {
-        SpawnAllPlayers();
-    }
-
-    public void SpawnAllPlayers()
-    {
-        //always spawn at initial spawn corresponding to ID, never randomly
-        foreach (KeyValuePair<int, Player> player in players)
-        {
-            if (player.Value.activeCharacterInScene == null)
-            {
-                SpawnPlayer(player.Key, initialSpawnPoints[player.Key].transform.position);
-            }
-        }
+        playerScores = new int[players.Count];
     }
 
     public void RespawnPlayer(int PlayerToRespawnID)
@@ -33,14 +21,10 @@ public class FreeForAllGameMode : GameMode
         SpawnPlayer(PlayerToRespawnID, furthestAwaySpawnPoint);
     }
 
-
     public override void CharacterCollision(int attackerPlayerID, int VictimPlayerID)
     {
         playerScores[attackerPlayerID] += 1;
         Destroy(players[VictimPlayerID].activeCharacterInScene);
-
         RespawnPlayer(VictimPlayerID);
-
-        print(playerScores[0] + "  " +  playerScores[1] + "  " + playerScores[2] + "  " + playerScores[3]);
     }
 }

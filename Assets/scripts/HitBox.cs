@@ -8,10 +8,6 @@ public class HitBox : MonoBehaviour
     public int myPlayerID;
     public GameMode activeGameMode;
 
-    private void Awake()
-    {
-    }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("weapon"))

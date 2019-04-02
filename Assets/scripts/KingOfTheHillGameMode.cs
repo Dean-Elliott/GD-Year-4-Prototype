@@ -10,7 +10,9 @@ public class KingOfTheHillGameMode : GameMode
 
     public KingOfTheHillCapturePoint capturePoint;
 
-    public override void AtEndOfOnEnableOverride()
+    public enum ScoreCalculationMode { allPlayersInZoneScore, firstPlayerInControlsPointUntilRemoved, firstPLayerInScoresOnlyIfUncontested}
+
+    private void OnEnable()
     {
         SpawnAllPlayers();
         playerScores = new float[players.Count];
@@ -45,6 +47,6 @@ public class KingOfTheHillGameMode : GameMode
     public void PlayerInCaptureZone(GameObject playerInZone)
     {
         playerScores[playerInZone.GetComponentInParent<BaseCharacter>().myPlayerInfo.playerID] += Time.fixedDeltaTime;
-        print("red: " + (int)playerScores[0] + "  blue: " + (int)playerScores[1] + "  green: " + (int)playerScores[2] + "  yellow: " + (int)playerScores[3]);
+        //print("red: " + (int)playerScores[0] + "  blue: " + (int)playerScores[1] + "  green: " + (int)playerScores[2] + "  yellow: " + (int)playerScores[3]);
     }
 }

@@ -1,0 +1,2 @@
+D:\One button fighter\github project\GD-Year-4-Prototype\obj\Debug\Assembly-CSharp.csprojAssemblyReference.cache
+D:\One button fighter\github project\GD-Year-4-Prototype\obj\Debug\Assembly-CSharp.csproj.CoreCompileInputs.cache
