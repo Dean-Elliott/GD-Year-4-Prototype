@@ -1340,6 +1340,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6243513430803075838, guid: a0d70d0c665cf574093b28eaac4244a8,
+        type: 3}
+      propertyPath: char_dashForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6243513430803075838, guid: a0d70d0c665cf574093b28eaac4244a8,
+        type: 3}
+      propertyPath: dashForce
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0d70d0c665cf574093b28eaac4244a8, type: 3}
 --- !u!1 &802701947
@@ -1665,11 +1675,11 @@ GameObject:
   - component: {fileID: 847189959}
   m_Layer: 0
   m_Name: KOTH hill
-  m_TagString: Untagged
+  m_TagString: KOTH Circle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &847189958
 Transform:
   m_ObjectHideFlags: 0
@@ -1697,7 +1707,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a0446609adcd824fb807bea647eaf92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  activeGameMode: {fileID: 0}
+  activeGameMode: {fileID: 921547827}
 --- !u!212 &847189960
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1857,7 +1867,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &921547827
 MonoBehaviour:
   m_ObjectHideFlags: 0

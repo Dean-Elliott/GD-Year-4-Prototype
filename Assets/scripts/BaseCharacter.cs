@@ -59,6 +59,11 @@ public abstract class BaseCharacter : BaseCharacterParent
         if (isButtonUpThisFrame) { ButtonUpThisFrame(); }
         if (isButtonHeldDown) { OnButtonHeldDown(); }
         if (isButtonHeldUp) { OnButtonHeldUp(); }
+
+        if(slowVelocity == true && ((myRigidBody2D.velocity.x > 1f || myRigidBody2D.velocity.y > 1f) || (myRigidBody2D.velocity.x < -1f || myRigidBody2D.velocity.y < -1f)))
+        {
+            myRigidBody2D.velocity -= new Vector2(myRigidBody2D.velocity.x * 0.1f, myRigidBody2D.velocity.y * 0.1f);
+        }
     }
 
     //attempt to zero out velocity, then apply addforce in direction player is facing
@@ -104,6 +109,32 @@ public abstract class BaseCharacter : BaseCharacterParent
             throw new System.Exception("rotation direction is unassigned!");
         }
         else return 0f;
+    }
+
+    private bool slowVelocity;
+    private float originalDashForce;
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        dashForce = originalDashForce;
+
+        if (collision.gameObject.tag == "KOTH Circle")
+        {
+            myRigidBody2D.gravityScale = 0.0f;
+            slowVelocity = true;
+            dashForce = dashForce * 0.0f;
+        }
+   
+    }
+
+    public void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "KOTH Circle")
+        {
+            myRigidBody2D.gravityScale = 1.0f;
+            slowVelocity = false;
+            dashForce = originalDashForce;
+        }
     }
 
     //switches the characters rotation direction to its opposite

@@ -8,6 +8,7 @@ TagManager:
   - pointy2
   - weapon
   - SpawnPoint
+  - KOTH Circle
   layers:
   - Default
   - TransparentFX
