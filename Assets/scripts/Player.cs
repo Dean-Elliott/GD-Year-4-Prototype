@@ -20,7 +20,10 @@ public class Player : MonoBehaviour
         activeCharacterInSceneCharacterScript.inputButton = inputButton;
         activeCharacterInSceneCharacterScript.myPlayerInfo = this;
         activeCharacterInScene.GetComponent<PlayerVisuals>().myPlayerInfo = this;
+        activeCharacterInScene.GetComponentInChildren<HitBox>().myCharacter = activeCharacterInSceneCharacterScript;
         activeCharacterInScene.GetComponentInChildren<HitBox>().myPlayerID = playerID;
         activeCharacterInScene.GetComponentInChildren<HitBox>().activeGameMode = activeGameMode;
+
+        activeCharacterInScene.GetComponentInChildren<SpawnShield>().myCharacter = activeCharacterInSceneCharacterScript;
     }
 }

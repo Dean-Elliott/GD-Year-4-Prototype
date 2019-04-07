@@ -25,9 +25,20 @@ public abstract class GameMode : MonoBehaviour
 
     private void OnEnable()
     {
-        print("spawn all");
-        SpawnAllPlayers(initialSpawnZones);
+        //HACK
         AtEndOfOnEnable();
+        MatchStart();
+    }
+
+    private void MatchStart()
+    {
+        SpawnAllPlayers(initialSpawnZones);
+        foreach (KeyValuePair<int, Player> player in players)
+        {
+            player.Value.activeCharacterInScene.GetComponentInChildren<SpawnShield>().isTimerStarted = false;
+            player.Value.activeCharacterInSceneCharacterScript.canUseInputs = false;
+        }
+            StartCoroutine(StartOfRoundCountdownTimer());
     }
 
     public virtual void AtEndOfOnEnable()
@@ -35,10 +46,15 @@ public abstract class GameMode : MonoBehaviour
 
     }
 
-    //IEnumerator CountdownTimer()
-    //{
-
-    //}
+    IEnumerator StartOfRoundCountdownTimer()
+    {
+        yield return new WaitForSeconds(3);
+        foreach (KeyValuePair<int, Player> player in players)
+        {
+            player.Value.activeCharacterInSceneCharacterScript.canUseInputs = true;
+            player.Value.activeCharacterInScene.GetComponentInChildren<SpawnShield>().isTimerStarted = true;
+        }
+    }
 
     public void SpawnPlayer(int playerToSpawnID, Vector2 spawnLocation)
     {

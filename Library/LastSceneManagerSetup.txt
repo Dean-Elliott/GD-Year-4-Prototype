@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Tutorial Map.unity
+- path: Assets/Scenes/Nolans test level.unity
   isLoaded: 1
   isActive: 1

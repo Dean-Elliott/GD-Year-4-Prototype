@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/menuTest.unity
     guid: b0fc6d3abfe879349b86250d83817068
   - enabled: 1
-    path: Assets/Scenes/basic character.unity
+    path: Assets/Scenes/Nolans test level.unity
     guid: f8689a70b21261347a22456f11eed6f1
   m_configObjects: {}

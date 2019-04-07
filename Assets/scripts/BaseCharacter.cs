@@ -9,9 +9,14 @@ public abstract class BaseCharacter : BaseCharacterParent
     public string inputButton;
 
     [Header("Input")]
+    public bool canUseInputs = true;
+    [HideInInspector]
     public bool isButtonDownThisFrame;
+    [HideInInspector]
     public bool isButtonUpThisFrame;
+    [HideInInspector]
     public bool isButtonHeldDown;
+    [HideInInspector]
     public bool isButtonHeldUp;
 
     [Header("Stats")]
@@ -35,6 +40,8 @@ public abstract class BaseCharacter : BaseCharacterParent
 
     public Player myPlayerInfo;
 
+    public bool isVulnerable = true;
+
     protected override sealed void Awake()
     {
         myRigidBody2D = GetComponentInParent<Rigidbody2D>();
@@ -55,10 +62,13 @@ public abstract class BaseCharacter : BaseCharacterParent
 
     private void FixedUpdate()
     {
-        if (isButtonDownThisFrame) { ButtonDownThisFrame(); }
-        if (isButtonUpThisFrame) { ButtonUpThisFrame(); }
-        if (isButtonHeldDown) { OnButtonHeldDown(); }
-        if (isButtonHeldUp) { OnButtonHeldUp(); }
+        if (canUseInputs == true)
+        {
+            if (isButtonDownThisFrame) { ButtonDownThisFrame(); }
+            if (isButtonUpThisFrame) { ButtonUpThisFrame(); }
+            if (isButtonHeldDown) { OnButtonHeldDown(); }
+            if (isButtonHeldUp) { OnButtonHeldUp(); }
+        }
 
         if(slowVelocity == true && ((myRigidBody2D.velocity.x > 1f || myRigidBody2D.velocity.y > 1f) || (myRigidBody2D.velocity.x < -1f || myRigidBody2D.velocity.y < -1f)))
         {
