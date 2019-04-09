@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Nolans test level.unity
+- path: Assets/Scenes/Map with Full KOTH feel.unity
   isLoaded: 1
   isActive: 1
