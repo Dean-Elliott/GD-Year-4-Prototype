@@ -704,6 +704,7 @@ MonoBehaviour:
   - {fileID: 2117685634}
   - {fileID: 195244357}
   - {fileID: 1516639539}
+  camshake: {fileID: 519420030}
   spoofedPlayerDataGameObject: {fileID: 507352842}
   playerScores: 
   initialSpawnPoints:
@@ -717,6 +718,8 @@ MonoBehaviour:
   - {fileID: 195244357}
   - {fileID: 1516639539}
   changeColorToWinningPlayer: {fileID: 2090181803}
+  explosionPrefab: {fileID: 3832228693696169722, guid: 0b06dc305ac9b4e44b8b0e8757466571,
+    type: 3}
 --- !u!4 &383634140
 Transform:
   m_ObjectHideFlags: 0
@@ -829,7 +832,7 @@ RectTransform:
   - {fileID: 1148116373}
   - {fileID: 248400730}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1014,7 +1017,7 @@ Transform:
   - {fileID: 633233124}
   - {fileID: 718186690}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &519420028
 GameObject:
@@ -1057,6 +1060,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camTransform: {fileID: 0}
   shakeDuration: 0
+  defaultShakeDuration: 0.09
   minDuration: 0.01
   maxDuration: 0.13
   shakeAmount: 0.5
@@ -1284,7 +1288,7 @@ PrefabInstance:
     - target: {fileID: 6243513430803075834, guid: a0d70d0c665cf574093b28eaac4244a8,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6243513430803075837, guid: a0d70d0c665cf574093b28eaac4244a8,
         type: 3}
@@ -1324,7 +1328,7 @@ PrefabInstance:
     - target: {fileID: 6243513430803075837, guid: a0d70d0c665cf574093b28eaac4244a8,
         type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 6243513430803075837, guid: a0d70d0c665cf574093b28eaac4244a8,
         type: 3}
@@ -1553,9 +1557,8 @@ Transform:
   - {fileID: 2117685635}
   - {fileID: 195244358}
   - {fileID: 1516639540}
-  - {fileID: 920954535}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &829473773
 GameObject:
@@ -1872,8 +1875,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 60, y: 60, z: 1}
   m_Children: []
-  m_Father: {fileID: 810378570}
-  m_RootOrder: 6
+  m_Father: {fileID: 0}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &921547826
 GameObject:
@@ -1891,7 +1894,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &921547827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1906,6 +1909,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   respawnTime: 1
   initialSpawnZones: []
+  camshake: {fileID: 519420030}
   spoofedPlayerDataGameObject: {fileID: 507352842}
   spawnPoints:
   - {fileID: 1482791436}
@@ -2297,7 +2301,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1303014525
 GameObject:
@@ -3276,7 +3280,7 @@ Transform:
   - {fileID: 802701948}
   - {fileID: 77822759}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2090181803
 MonoBehaviour:

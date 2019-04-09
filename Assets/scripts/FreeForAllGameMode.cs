@@ -11,6 +11,7 @@ public class FreeForAllGameMode : GameMode
     public GameObject[] spawnPoints;
 
     public ChangeColorToWinningPlayer changeColorToWinningPlayer;
+    public GameObject explosionPrefab;
 
     public override void AtEndOfOnEnable()
     {
@@ -26,9 +27,21 @@ public class FreeForAllGameMode : GameMode
     public override void CharacterCollision(int attackerPlayerID, int VictimPlayerID)
     {
         playerScores[attackerPlayerID] += 1;
+
+        //HACK
+        //explosion
+        GameObject newExplosion;
+        newExplosion = Instantiate(explosionPrefab, players[VictimPlayerID].activeCharacterInScene.transform.position, Quaternion.identity);
+        ParticleSystem ps = newExplosion.GetComponentInChildren<ParticleSystem>();
+        ParticleSystem.MainModule psmain = ps.main;
+        psmain.startColor = GameManager.gameManagerInstance.playerColors[VictimPlayerID];
+
         Destroy(players[VictimPlayerID].activeCharacterInScene);
         RespawnPlayer(VictimPlayerID);
 
+
+        //HACK
+        camshake.Shake();
         //HACK
         ChangeBackgroundColor();
     }

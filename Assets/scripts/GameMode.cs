@@ -12,6 +12,9 @@ public abstract class GameMode : MonoBehaviour
     public GameObject []initialSpawnZones;
 
     //HACK
+    public CameraShake camshake;
+
+    //HACK
     [Header("temp hack")]
     public TempGameModeInitializer spoofedPlayerDataGameObject;
     private void Awake()

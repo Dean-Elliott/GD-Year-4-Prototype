@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//HACK
+//FIX ALL OF THIS
 
 //credit to FTVS https://gist.github.com/ftvs/5822103
 
@@ -13,6 +15,8 @@ public class CameraShake : MonoBehaviour
 
     // How long the object should shake for.
     public float shakeDuration = 0f;
+
+    public float defaultShakeDuration;
 
     public float minDuration = .01f;
     public float maxDuration = 0.2f;
@@ -55,7 +59,12 @@ public class CameraShake : MonoBehaviour
         }
     }
 
-    public void impact(float impactStrengthPercent)
+    public void Shake()
+    {
+        shakeDuration = defaultShakeDuration;
+    }
+
+    public void Impact(float impactStrengthPercent)
     {
         shakeAmount = Mathf.Lerp(minShakeAmount, maxShakeAmount, impactStrengthPercent);
         shakeDuration = Mathf.Lerp(minDuration, maxDuration, impactStrengthPercent);

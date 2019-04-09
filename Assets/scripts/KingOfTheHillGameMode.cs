@@ -41,6 +41,9 @@ public class KingOfTheHillGameMode : GameMode
     {
         Destroy(players[VictimPlayerID].activeCharacterInScene);
         RespawnPlayer(VictimPlayerID);
+
+        //HACK
+        camshake.Shake();
     }
 
 
