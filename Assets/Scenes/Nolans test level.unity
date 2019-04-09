@@ -1284,7 +1284,7 @@ PrefabInstance:
     - target: {fileID: 6243513430803075834, guid: a0d70d0c665cf574093b28eaac4244a8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6243513430803075837, guid: a0d70d0c665cf574093b28eaac4244a8,
         type: 3}
@@ -1339,6 +1339,38 @@ PrefabInstance:
     - target: {fileID: 6243513430803075837, guid: a0d70d0c665cf574093b28eaac4244a8,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1389890468, guid: a0d70d0c665cf574093b28eaac4244a8, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1389890471, guid: a0d70d0c665cf574093b28eaac4244a8, type: 3}
+      propertyPath: SizeModule.separateAxes
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1389890471, guid: a0d70d0c665cf574093b28eaac4244a8, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].inSlope
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1389890471, guid: a0d70d0c665cf574093b28eaac4244a8, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].outSlope
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1389890471, guid: a0d70d0c665cf574093b28eaac4244a8, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[0].tangentMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1389890471, guid: a0d70d0c665cf574093b28eaac4244a8, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1389890471, guid: a0d70d0c665cf574093b28eaac4244a8, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].outSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1389890471, guid: a0d70d0c665cf574093b28eaac4244a8, type: 3}
+      propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].tangentMode
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1859,7 +1891,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &921547827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1881,7 +1913,7 @@ MonoBehaviour:
   - {fileID: 195244357}
   - {fileID: 1516639539}
   playerScores: []
-  capturePoint: {fileID: 0}
+  capturePoint: {fileID: 847189959}
 --- !u!4 &921547828
 Transform:
   m_ObjectHideFlags: 0
