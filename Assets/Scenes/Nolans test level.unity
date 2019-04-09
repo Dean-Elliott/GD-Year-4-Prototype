@@ -222,7 +222,7 @@ Transform:
   m_LocalScale: {x: 3.209692, y: 1.2375207, z: 0.15657}
   m_Children: []
   m_Father: {fileID: 2090181802}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 135}
 --- !u!50 &77822760
 Rigidbody2D:
@@ -716,6 +716,7 @@ MonoBehaviour:
   - {fileID: 2117685634}
   - {fileID: 195244357}
   - {fileID: 1516639539}
+  changeColorToWinningPlayer: {fileID: 2090181803}
 --- !u!4 &383634140
 Transform:
   m_ObjectHideFlags: 0
@@ -961,7 +962,7 @@ Transform:
   m_LocalScale: {x: 20.5, y: 6.7665267, z: 1}
   m_Children: []
   m_Father: {fileID: 2090181802}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -89.994}
 --- !u!1 &507352841
 GameObject:
@@ -1373,7 +1374,7 @@ Transform:
   m_LocalScale: {x: 3.2096913, y: 1.2375205, z: 0.15657}
   m_Children: []
   m_Father: {fileID: 2090181802}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 45.000004}
 --- !u!50 &802701949
 Rigidbody2D:
@@ -1520,6 +1521,7 @@ Transform:
   - {fileID: 2117685635}
   - {fileID: 195244358}
   - {fileID: 1516639540}
+  - {fileID: 920954535}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1554,7 +1556,7 @@ Transform:
   m_LocalScale: {x: 3.209691, y: 1.2375205, z: 0.15657}
   m_Children: []
   m_Father: {fileID: 2090181802}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 225}
 --- !u!50 &829473775
 Rigidbody2D:
@@ -1773,7 +1775,7 @@ GameObject:
   - component: {fileID: 920954535}
   - component: {fileID: 920954534}
   m_Layer: 10
-  m_Name: bg
+  m_Name: background grid sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1838,8 +1840,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 60, y: 60, z: 1}
   m_Children: []
-  m_Father: {fileID: 2090181802}
-  m_RootOrder: 0
+  m_Father: {fileID: 810378570}
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &921547826
 GameObject:
@@ -2819,7 +2821,7 @@ Transform:
   m_LocalScale: {x: 20.5, y: 7.9039173, z: 1}
   m_Children: []
   m_Father: {fileID: 2090181802}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -89.994}
 --- !u!1 &1686366065
 GameObject:
@@ -2852,7 +2854,7 @@ Transform:
   m_LocalScale: {x: 3.209685, y: 1.2375168, z: 0.15657}
   m_Children: []
   m_Father: {fileID: 2090181802}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 135}
 --- !u!50 &1686366067
 Rigidbody2D:
@@ -3075,7 +3077,7 @@ Transform:
   m_LocalScale: {x: 20.5, y: 5.8242965, z: 1}
   m_Children: []
   m_Father: {fileID: 2090181802}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2057137290
 GameObject:
@@ -3203,7 +3205,7 @@ Transform:
   m_LocalScale: {x: 20.5, y: 5.7930856, z: 1}
   m_Children: []
   m_Father: {fileID: 2090181802}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2090181801
 GameObject:
@@ -3214,6 +3216,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2090181802}
+  - component: {fileID: 2090181803}
   m_Layer: 10
   m_Name: walls
   m_TagString: Untagged
@@ -3232,7 +3235,6 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 920954535}
   - {fileID: 2057137294}
   - {fileID: 1713055522}
   - {fileID: 439301213}
@@ -3244,6 +3246,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2090181803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2090181801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c55a26db6abb3c1478e2c336f4a989c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultColor: {r: 0.87843144, g: 0.87843144, b: 0.87843144, a: 1}
 --- !u!1 &2117685634
 GameObject:
   m_ObjectHideFlags: 0

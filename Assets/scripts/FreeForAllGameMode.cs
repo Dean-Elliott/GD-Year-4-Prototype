@@ -10,6 +10,8 @@ public class FreeForAllGameMode : GameMode
     public GameObject[] initialSpawnPoints;
     public GameObject[] spawnPoints;
 
+    public ChangeColorToWinningPlayer changeColorToWinningPlayer;
+
     public override void AtEndOfOnEnable()
     {
         playerScores = new int[players.Count];
@@ -26,5 +28,45 @@ public class FreeForAllGameMode : GameMode
         playerScores[attackerPlayerID] += 1;
         Destroy(players[VictimPlayerID].activeCharacterInScene);
         RespawnPlayer(VictimPlayerID);
+
+        //HACK
+        ChangeBackgroundColor();
+    }
+
+    public void ChangeBackgroundColor()
+    {
+        //HACK
+        //change bg color
+        int highestScore = -1;
+        for (int i = 0; i < playerScores.Length; i++)
+        {
+            if (playerScores[i] > highestScore)
+            {
+                highestScore = playerScores[i];
+            }
+        }
+        int playersTiedForHighScore = 0;
+        for (int i = 0; i < playerScores.Length; i++)
+        {
+            if (playerScores[i] == highestScore)
+            {
+                playersTiedForHighScore += 1;
+            }
+        }
+        if (playersTiedForHighScore > 1)
+        {
+            changeColorToWinningPlayer.setColor(changeColorToWinningPlayer.defaultColor);
+        }
+        if (playersTiedForHighScore == 1)
+        {
+            Color winningPlayerColor;
+            for (int i = 0; i < playerScores.Length; i++)
+            {
+                if (playerScores[i] == highestScore)
+                {
+                    changeColorToWinningPlayer.setColor(GameManager.gameManagerInstance.playerColors[i]);
+                }
+            }
+        }
     }
 }
