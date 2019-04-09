@@ -35,13 +35,13 @@ public class Teleportation : MonoBehaviour
     private bool IsPlayer(GameObject gameObject) //check if name or tag is player
     {
 
-        return gameObject.GetComponentInParent<PlayerController>(); //Locate the object of the player with the Player Controller
+        return gameObject.GetComponentInParent<basicCharacter>(); //Locate the object of the player with the Player Controller
     }
 
     private async void Teleport(GameObject otherObject)
     {
         await Task.Delay(100);
-        otherObject = otherObject.GetComponentInParent<PlayerController>().gameObject;
+        otherObject = otherObject.GetComponentInParent<basicCharacter>().gameObject;
 
        
         if (ignoredObjects.Contains(otherObject)) return;  //Dont teleport this object, its ignored
