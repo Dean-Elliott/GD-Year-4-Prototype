@@ -23,7 +23,6 @@ public class Player : MonoBehaviour
         activeCharacterInScene.GetComponentInChildren<HitBox>().myCharacter = activeCharacterInSceneCharacterScript;
         activeCharacterInScene.GetComponentInChildren<HitBox>().myPlayerID = playerID;
         activeCharacterInScene.GetComponentInChildren<HitBox>().activeGameMode = activeGameMode;
-
         activeCharacterInScene.GetComponentInChildren<SpawnShield>().myCharacter = activeCharacterInSceneCharacterScript;
     }
 }

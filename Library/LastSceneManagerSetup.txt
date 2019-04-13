@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Map with Full KOTH feel.unity
+- path: Assets/Scenes/Boras Test Level.unity
   isLoaded: 1
   isActive: 1

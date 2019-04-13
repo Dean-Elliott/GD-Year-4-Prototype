@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     public GameObject[] allCharacterPrefabs;
 
     public Color[] playerColors;
-
+   
     public static GameManager gameManagerInstance;
 
     public enum GameMode { freeForAll, oddBall};
