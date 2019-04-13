@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Nolans test level.unity
     guid: f8689a70b21261347a22456f11eed6f1
+  - enabled: 1
+    path: Assets/Scenes/FFA-Test.unity
+    guid: 8953837a3e2b4384cad58aeb69b8135e
   m_configObjects: {}

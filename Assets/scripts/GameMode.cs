@@ -20,6 +20,11 @@ public abstract class GameMode : MonoBehaviour
     private void Awake()
     {
         players = new Dictionary<int, Player>();
+        
+        ///Aushton Change
+        spoofedPlayerDataGameObject.CheckForPrevious();
+        spoofedPlayerDataGameObject = FindObjectOfType<TempGameModeInitializer>(); 
+        //
         foreach(Player player in spoofedPlayerDataGameObject.spoofedPlayerData)
         {
             players.Add(player.playerID, player);
@@ -31,6 +36,24 @@ public abstract class GameMode : MonoBehaviour
         //HACK
         AtEndOfOnEnable();
         MatchStart();
+    }
+
+    private void Start()
+    {
+        
+    }
+    private void OnLevelWasLoaded(int level)
+    {
+        if (spoofedPlayerDataGameObject == null)
+        {
+            spoofedPlayerDataGameObject = FindObjectOfType<TempGameModeInitializer>();
+
+            players.Clear();
+            foreach (Player player in spoofedPlayerDataGameObject.spoofedPlayerData)
+            {
+                players.Add(player.playerID, player);
+            }
+        }
     }
 
     private void MatchStart()

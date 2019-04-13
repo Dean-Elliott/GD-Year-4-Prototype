@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\3rd party assets\CameraShake.cs" />
     <Compile Include="Assets\ChangeColorToWinningPlayer.cs" />
+    <Compile Include="Assets\ReadyZone.cs" />
     <Compile Include="Assets\scripts\ArmourGenerator.cs" />
     <Compile Include="Assets\scripts\BaseCharacter.cs" />
     <Compile Include="Assets\scripts\BaseCharacterParent.cs" />

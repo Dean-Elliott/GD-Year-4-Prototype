@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee7cdd2a770e4b242b545124b3118937, type: 3}
   m_Name: 4 Player Test
   m_EditorClassIdentifier: 
-  sceneName: basic character
+  sceneName: FFA-test
   supportedGameModes: 00000000
   minPlayers: 2
   maxPlayers: 4

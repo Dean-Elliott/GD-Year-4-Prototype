@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GameManager : MonoBehaviour
 {
     public GameObject[] allCharacterPrefabs;
@@ -9,6 +10,8 @@ public class GameManager : MonoBehaviour
     public Color[] playerColors;
 
     public static GameManager gameManagerInstance;
+
+    public GameObject spoofedPlayerData;
 
     public enum GameMode { freeForAll, oddBall};
 
@@ -21,6 +24,11 @@ public class GameManager : MonoBehaviour
         else
         {
             gameManagerInstance = this;
+            DontDestroyOnLoad(this);
+
         }
+
+        spoofedPlayerData = FindObjectOfType<TempGameModeInitializer>().gameObject;
+        DontDestroyOnLoad(spoofedPlayerData);
     }
 }
