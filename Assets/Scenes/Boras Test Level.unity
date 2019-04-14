@@ -857,14 +857,6 @@ MonoBehaviour:
   greenHolo: {fileID: 2100000, guid: c7cd77ffd9f8913408e77b3214ceac08, type: 2}
   yellowHolo: {fileID: 2100000, guid: 1a95eab316a52ea44a3a4719c856b2ce, type: 2}
   standardMat: {fileID: 2100000, guid: bb29b539cd850f04b9cb623e82cd9208, type: 2}
-  redParticle: {fileID: 9220079737213615755, guid: e9bebf2511e94574fb293d2e7f3e6bf0,
-    type: 3}
-  blueParticle: {fileID: 7985407426121238962, guid: 8c1d5d80a3c0f354390aa1bbc6e59031,
-    type: 3}
-  greenParticle: {fileID: 7985407426121238962, guid: 46776b6f594dbe345b7b6355b342a551,
-    type: 3}
-  yellowParticle: {fileID: 9220079737213615755, guid: a38996481d85d2843a8bf46a53156e0c,
-    type: 3}
   FFAScript: {fileID: 383634139}
   gameModeScript: {fileID: 383634139}
   playerScript:
@@ -1585,6 +1577,11 @@ PrefabInstance:
     - target: {fileID: 1389890471, guid: a0d70d0c665cf574093b28eaac4244a8, type: 3}
       propertyPath: SizeModule.curve.maxCurve.m_Curve.Array.data[1].tangentMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6243513430803075835, guid: a0d70d0c665cf574093b28eaac4244a8,
+        type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0d70d0c665cf574093b28eaac4244a8, type: 3}

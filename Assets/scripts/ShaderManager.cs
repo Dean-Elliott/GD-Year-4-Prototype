@@ -29,15 +29,7 @@ public class ShaderManager : MonoBehaviour
 
 
 
-    #region ParticleSystems 
 
-    [Header("Particle Systems")]
-
-    public ParticleSystem redParticle;
-    public ParticleSystem blueParticle;
-    public ParticleSystem greenParticle;
-    public ParticleSystem yellowParticle;
-    #endregion
 
     #region Scripts
 
@@ -64,11 +56,7 @@ public class ShaderManager : MonoBehaviour
         greenPlayer = gameModeScript.players[2].activeCharacterInScene;
         yellowPlayer = gameModeScript.players[3].activeCharacterInScene;
 
-        redParticle.Play();
-        blueParticle.Play();
-        greenParticle.Play();
-        yellowParticle.Play();
-        InstantiateParticles();
+
     }
 
     void Update()
@@ -87,10 +75,7 @@ public class ShaderManager : MonoBehaviour
     {
         #region Variables
 
-        var redEmission = redParticle.emission;
-        var blueEmission = blueParticle.emission;
-        var greenEmission = greenParticle.emission;
-        var yellowEmission = yellowParticle.emission;
+
 
         #endregion
 
@@ -100,35 +85,35 @@ public class ShaderManager : MonoBehaviour
         if (FFAScript.playerScores[0] > FFAScript.playerScores[1])
         {
             redPlayer.GetComponent<Renderer>().material = redHolo;
-            redEmission.rateOverTime = 10;
+
         }
-        else
+        else if ((FFAScript.playerScores[0] < FFAScript.playerScores[1]))
         {
             redPlayer.GetComponent<Renderer>().material = standardMat;
-            redEmission.rateOverTime = 0;
+
         }
 
         if (FFAScript.playerScores[0] > FFAScript.playerScores[2])
         {
             redPlayer.GetComponent<Renderer>().material = redHolo;
-            redEmission.rateOverTime = 10;
+
         }
-        else
+        else if (FFAScript.playerScores[0] < FFAScript.playerScores[2])
         {
             redPlayer.GetComponent<Renderer>().material = standardMat;
-            redEmission.rateOverTime = 0;
+
         }
 
         if (FFAScript.playerScores[0] > FFAScript.playerScores[3])
         {
             redPlayer.GetComponent<Renderer>().material = redHolo;
-            redEmission.rateOverTime = 10;
+
         }
 
-        else
+        else if (FFAScript.playerScores[0] < FFAScript.playerScores[3])
         {
             redPlayer.GetComponent<Renderer>().material = standardMat;
-            redEmission.rateOverTime = 0;
+
         }
 
         #endregion
@@ -141,12 +126,12 @@ public class ShaderManager : MonoBehaviour
         {
 
             bluePlayer.GetComponent<Renderer>().material = blueHolo;
-            blueEmission.rateOverTime = 10;
+
         }
-        else
+        else if (FFAScript.playerScores[1] < FFAScript.playerScores[0])
         {
             bluePlayer.GetComponent<Renderer>().material = standardMat;
-            blueEmission.rateOverTime = 0;
+
 
         }
 
@@ -154,12 +139,12 @@ public class ShaderManager : MonoBehaviour
         {
 
             bluePlayer.GetComponent<Renderer>().material = blueHolo;
-            blueEmission.rateOverTime = 10;
+
         }
-        else
+        else if (FFAScript.playerScores[1] < FFAScript.playerScores[2])
         {
             bluePlayer.GetComponent<Renderer>().material = standardMat;
-            blueEmission.rateOverTime = 0;
+
 
         }
 
@@ -167,12 +152,12 @@ public class ShaderManager : MonoBehaviour
         {
 
             bluePlayer.GetComponent<Renderer>().material = blueHolo;
-            blueEmission.rateOverTime = 10;
+
         }
-        else
+        else if (FFAScript.playerScores[1] < FFAScript.playerScores[3])
         {
             bluePlayer.GetComponent<Renderer>().material = standardMat;
-            blueEmission.rateOverTime = 0;
+
 
         }
 
@@ -186,12 +171,11 @@ public class ShaderManager : MonoBehaviour
         {
 
             greenPlayer.GetComponent<Renderer>().material = greenHolo;
-            greenEmission.rateOverTime = 10;
+
         }
-        else
+        else if (FFAScript.playerScores[2] < FFAScript.playerScores[0])
         {
             greenPlayer.GetComponent<Renderer>().material = standardMat;
-            greenEmission.rateOverTime = 0;
 
         }
 
@@ -199,12 +183,11 @@ public class ShaderManager : MonoBehaviour
         {
 
             greenPlayer.GetComponent<Renderer>().material = greenHolo;
-            greenEmission.rateOverTime = 10;
+
         }
-        else
+        else if (FFAScript.playerScores[2] < FFAScript.playerScores[1])
         {
             greenPlayer.GetComponent<Renderer>().material = standardMat;
-            greenEmission.rateOverTime = 0;
 
         }
 
@@ -212,12 +195,12 @@ public class ShaderManager : MonoBehaviour
         {
 
             greenPlayer.GetComponent<Renderer>().material = greenHolo;
-            greenEmission.rateOverTime = 10;
+
         }
-        else
+        else if(FFAScript.playerScores[2] < FFAScript.playerScores[3])
         {
             greenPlayer.GetComponent<Renderer>().material = standardMat;
-            greenEmission.rateOverTime = 0;
+
 
         }
 
@@ -230,12 +213,12 @@ public class ShaderManager : MonoBehaviour
         {
 
             yellowPlayer.GetComponent<Renderer>().material = yellowHolo;
-            greenEmission.rateOverTime = 10;
+
         }
-        else
+        else if (FFAScript.playerScores[3] < FFAScript.playerScores[0])
         {
             yellowPlayer.GetComponent<Renderer>().material = standardMat;
-            yellowEmission.rateOverTime = 0;
+
 
         }
 
@@ -243,12 +226,12 @@ public class ShaderManager : MonoBehaviour
         {
 
             yellowPlayer.GetComponent<Renderer>().material = yellowHolo;
-            yellowEmission.rateOverTime = 10;
+
         }
-        else
+        else if (FFAScript.playerScores[3] < FFAScript.playerScores[1])
         {
             yellowPlayer.GetComponent<Renderer>().material = standardMat;
-            yellowEmission.rateOverTime = 0;
+
 
         }
 
@@ -256,26 +239,15 @@ public class ShaderManager : MonoBehaviour
         {
 
             yellowPlayer.GetComponent<Renderer>().material = yellowHolo;
-            yellowEmission.rateOverTime = 10;
+
         }
-        else
+        else if (FFAScript.playerScores[3] < FFAScript.playerScores[2])
         {
             yellowPlayer.GetComponent<Renderer>().material = standardMat;
-            yellowEmission.rateOverTime = 0;
 
         }
 
         #endregion
     }
-    void InstantiateParticles()
-    {
-        Instantiate(redParticle, redPlayer.transform);
 
-        Instantiate(blueParticle, bluePlayer.transform);
-
-        Instantiate(greenParticle, greenPlayer.transform);
-
-        Instantiate(yellowParticle, yellowPlayer.transform);
-
-    }
 }
