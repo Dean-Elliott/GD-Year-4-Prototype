@@ -27,16 +27,7 @@ public class ShaderManager : MonoBehaviour
 
     #endregion
 
-    #region GameObjects
 
-    [Header("Player Info")]
-
-    public Player redPlayerInfo;
-    public Player bluePlayerInfo;
-    public Player greenPlayerInfo;
-    public Player yellowPlayerInfo;
-
-    #endregion
 
     #region ParticleSystems 
 
@@ -54,35 +45,43 @@ public class ShaderManager : MonoBehaviour
 
     public FreeForAllGameMode FFAScript;
     private basicCharacter characterScript;
-    private GameMode gameModeScript;
-    private Player playerScript;
+    public GameMode gameModeScript;
+    public Player[] playerScript;
 
     #endregion
 
     void Awake()
     {
-        gameModeScript = GetComponent<GameMode>();
         characterScript = GetComponent<basicCharacter>();
-        playerScript = GetComponent<Player>();
-
-        gameModeScript.players[playerScript.playerID = 0].activeCharacterInScene = redPlayer;
-        gameModeScript.players[playerScript.playerID = 1].activeCharacterInScene = bluePlayer;
-        gameModeScript.players[playerScript.playerID = 2].activeCharacterInScene = greenPlayer;
-        gameModeScript.players[playerScript.playerID = 3].activeCharacterInScene = yellowPlayer;
+        //playerScript = GetComponent<Player>();
     }
 
     void Start()
     {
+
+        redPlayer = gameModeScript.players[0].activeCharacterInScene;
+        bluePlayer = gameModeScript.players[1].activeCharacterInScene;
+        greenPlayer = gameModeScript.players[2].activeCharacterInScene;
+        yellowPlayer = gameModeScript.players[3].activeCharacterInScene;
+
         redParticle.Play();
         blueParticle.Play();
         greenParticle.Play();
         yellowParticle.Play();
+        InstantiateParticles();
     }
 
     void Update()
     {
+        redPlayer = gameModeScript.players[0].activeCharacterInScene;
+        bluePlayer = gameModeScript.players[1].activeCharacterInScene;
+        greenPlayer = gameModeScript.players[2].activeCharacterInScene;
+        yellowPlayer = gameModeScript.players[3].activeCharacterInScene;
+
         ColorChanger();
-        InstantiateParticles();
+
+
+
     }
     void ColorChanger()
     {
@@ -270,11 +269,13 @@ public class ShaderManager : MonoBehaviour
     }
     void InstantiateParticles()
     {
-        Instantiate(redParticle, redPlayer.transform.position, Quaternion.identity);
-        Instantiate(blueParticle, bluePlayer.transform.position, Quaternion.identity);
-        Instantiate(greenParticle, greenPlayer.transform.position, Quaternion.identity);
-        Instantiate(yellowParticle, yellowPlayer.transform.position, Quaternion.identity);
+        Instantiate(redParticle, redPlayer.transform);
 
+        Instantiate(blueParticle, bluePlayer.transform);
+
+        Instantiate(greenParticle, greenPlayer.transform);
+
+        Instantiate(yellowParticle, yellowPlayer.transform);
 
     }
 }

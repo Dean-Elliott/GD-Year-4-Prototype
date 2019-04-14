@@ -832,7 +832,46 @@ PrefabInstance:
       objectReference: {fileID: 718186691}
     m_RemovedComponents:
     - {fileID: 5131697884803929295, guid: 6935478306f15244d97cadbe56f9aafa, type: 3}
+    - {fileID: 3098448518317532188, guid: 6935478306f15244d97cadbe56f9aafa, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6935478306f15244d97cadbe56f9aafa, type: 3}
+--- !u!1 &301788796 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5131697884803929294, guid: 6935478306f15244d97cadbe56f9aafa,
+    type: 3}
+  m_PrefabInstance: {fileID: 301788795}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &301788797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301788796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba21c6dae8925c442a0a5fd560283ac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  redHolo: {fileID: 2100000, guid: f15c3a86df04d6441a80eb085e79e97d, type: 2}
+  blueHolo: {fileID: 2100000, guid: 2cee53e901bbce9488666c4990532283, type: 2}
+  greenHolo: {fileID: 2100000, guid: c7cd77ffd9f8913408e77b3214ceac08, type: 2}
+  yellowHolo: {fileID: 2100000, guid: 1a95eab316a52ea44a3a4719c856b2ce, type: 2}
+  standardMat: {fileID: 2100000, guid: bb29b539cd850f04b9cb623e82cd9208, type: 2}
+  redParticle: {fileID: 9220079737213615755, guid: e9bebf2511e94574fb293d2e7f3e6bf0,
+    type: 3}
+  blueParticle: {fileID: 7985407426121238962, guid: 8c1d5d80a3c0f354390aa1bbc6e59031,
+    type: 3}
+  greenParticle: {fileID: 7985407426121238962, guid: 46776b6f594dbe345b7b6355b342a551,
+    type: 3}
+  yellowParticle: {fileID: 9220079737213615755, guid: a38996481d85d2843a8bf46a53156e0c,
+    type: 3}
+  FFAScript: {fileID: 383634139}
+  gameModeScript: {fileID: 383634139}
+  playerScript:
+  - {fileID: 535233552}
+  - {fileID: 1465506175}
+  - {fileID: 633233125}
+  - {fileID: 718186691}
 --- !u!1 &383634138
 GameObject:
   m_ObjectHideFlags: 0
@@ -862,6 +901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21d2048046802e941b9ba79715093118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerScoresTextMesh: []
   respawnTime: 1
   initialSpawnZones:
   - {fileID: 1482791436}
@@ -869,6 +909,7 @@ MonoBehaviour:
   - {fileID: 195244357}
   - {fileID: 1516639539}
   camshake: {fileID: 519420030}
+  isGameOver: 0
   spoofedPlayerDataGameObject: {fileID: 507352842}
   playerScores: 
   initialSpawnPoints:
@@ -884,6 +925,7 @@ MonoBehaviour:
   changeColorToWinningPlayer: {fileID: 2090181803}
   explosionPrefab: {fileID: 3832228693696169722, guid: 0b06dc305ac9b4e44b8b0e8757466571,
     type: 3}
+  pointsToWin: 20
 --- !u!4 &383634140
 Transform:
   m_ObjectHideFlags: 0
@@ -1330,6 +1372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d005f2975af89b4384372118bb1961b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 0
   inputButton: 0
   playerID: 0
   teamID: 0
@@ -1380,6 +1423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d005f2975af89b4384372118bb1961b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 0
   inputButton: 2
   playerID: 2
   teamID: 2
@@ -1430,6 +1474,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d005f2975af89b4384372118bb1961b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 0
   inputButton: 3
   playerID: 3
   teamID: 3
@@ -2071,9 +2116,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d65272440d3995444828cac404e5f579, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerScoresTextMesh: []
   respawnTime: 1
   initialSpawnZones: []
   camshake: {fileID: 519420030}
+  isGameOver: 0
   spoofedPlayerDataGameObject: {fileID: 507352842}
   spawnPoints:
   - {fileID: 1482791436}
@@ -2081,7 +2128,9 @@ MonoBehaviour:
   - {fileID: 195244357}
   - {fileID: 1516639539}
   playerScores: []
+  pointsToWin: 20
   capturePoint: {fileID: 847189959}
+  explosionPrefab: {fileID: 0}
 --- !u!4 &921547828
 Transform:
   m_ObjectHideFlags: 0
@@ -2453,6 +2502,8 @@ MonoBehaviour:
   - {r: 0, g: 0, b: 1, a: 1}
   - {r: 0, g: 1, b: 0, a: 1}
   - {r: 0.9974991, g: 1, b: 0, a: 1}
+  spoofedPlayerData: {fileID: 0}
+  winningPlayerID: 0
 --- !u!4 &1224859189
 Transform:
   m_ObjectHideFlags: 0
@@ -2828,6 +2879,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d005f2975af89b4384372118bb1961b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 0
   inputButton: 1
   playerID: 1
   teamID: 1
