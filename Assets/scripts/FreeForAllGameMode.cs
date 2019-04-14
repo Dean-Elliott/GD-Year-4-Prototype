@@ -70,8 +70,8 @@ public class FreeForAllGameMode : GameMode
         if (playerScores[scoringPlayer] >= pointsToWin)
         {
             GameManager.gameManagerInstance.winningPlayerID = scoringPlayer;
+            StartCoroutine(GameWon());
         }
-        StartCoroutine(GameWon());
     }
 
     public void ChangeBackgroundColor()
