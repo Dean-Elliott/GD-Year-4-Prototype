@@ -13,6 +13,8 @@ public class FreeForAllGameMode : GameMode
     public ChangeColorToWinningPlayer changeColorToWinningPlayer;
     public GameObject explosionPrefab;
 
+    public int pointsToWin = 20;
+
     public override void AtEndOfOnEnable()
     {
         playerScores = new int[players.Count];
@@ -26,7 +28,10 @@ public class FreeForAllGameMode : GameMode
 
     public override void CharacterCollision(int attackerPlayerID, int VictimPlayerID)
     {
-        playerScores[attackerPlayerID] += 1;
+        if (isGameOver == false)
+        {
+            playerScores[attackerPlayerID] += 1;
+        }
 
         //HACK
         //explosion
@@ -39,11 +44,34 @@ public class FreeForAllGameMode : GameMode
         Destroy(players[VictimPlayerID].activeCharacterInScene);
         RespawnPlayer(VictimPlayerID);
 
+        UpdateUI();
 
         //HACK
         camshake.Shake();
         //HACK
         ChangeBackgroundColor();
+
+        if (isGameOver == false)
+        {
+            CheckWinCondition(attackerPlayerID);
+        }
+    }
+
+    public override void UpdateUI()
+    {
+        for (int i = 0; i < playerScoresTextMesh.Length; i++)
+        {
+            playerScoresTextMesh[i].text = playerScores[i].ToString();
+        }           
+    }
+
+    public override void CheckWinCondition(int scoringPlayer)
+    {
+        if (playerScores[scoringPlayer] >= pointsToWin)
+        {
+            GameManager.gameManagerInstance.winningPlayerID = scoringPlayer;
+        }
+        StartCoroutine(GameWon());
     }
 
     public void ChangeBackgroundColor()

@@ -8,7 +8,11 @@ public class KingOfTheHillGameMode : GameMode
 
     public float[] playerScores;
 
+    public float pointsToWin = 20f;
+
     public KingOfTheHillCapturePoint capturePoint;
+
+    public GameObject explosionPrefab;
 
     public enum ScoreCalculationMode { allPlayersInZoneScore, firstPlayerInControlsPointUntilRemoved, firstPLayerInScoresOnlyIfUncontested}
 
@@ -39,18 +43,49 @@ public class KingOfTheHillGameMode : GameMode
 
     public override void CharacterCollision(int attackerPlayerID, int VictimPlayerID)
     {
+        //HACK
+        //explosion
+        GameObject newExplosion;
+        newExplosion = Instantiate(explosionPrefab, players[VictimPlayerID].activeCharacterInScene.transform.position, Quaternion.identity);
+        ParticleSystem ps = newExplosion.GetComponentInChildren<ParticleSystem>();
+        ParticleSystem.MainModule psmain = ps.main;
+        psmain.startColor = GameManager.gameManagerInstance.playerColors[VictimPlayerID];
+
         Destroy(players[VictimPlayerID].activeCharacterInScene);
         RespawnPlayer(VictimPlayerID);
 
         //HACK
-        camshake.Shake();
+        camshake.Shake();    
     }
 
 
     public void PlayerInCaptureZone(GameObject playerInZone)
     {
+        if(isGameOver == false)
+        {
         playerScores[playerInZone.GetComponentInParent<BaseCharacter>().myPlayerInfo.playerID] += Time.fixedDeltaTime;
         //print("red: " + (int)playerScores[0] + "  blue: " + (int)playerScores[1] + "  green: " + (int)playerScores[2] + "  yellow: " + (int)playerScores[3]);
         Debug.Log(playerScores);
+        CheckWinCondition(playerInZone.GetComponentInParent<BaseCharacter>().myPlayerInfo.playerID);
+        UpdateUI();
+        }
+    }
+
+    public override void CheckWinCondition(int scoringPlayer)
+    {
+        if (playerScores[scoringPlayer] >= pointsToWin)
+        {
+            GameManager.gameManagerInstance.winningPlayerID = scoringPlayer;
+            isGameOver = true;
+            StartCoroutine(GameWon());
+        }
+    }
+
+    public override void UpdateUI()
+    {
+        for (int i = 0; i < playerScoresTextMesh.Length; i++)
+        {
+            playerScoresTextMesh[i].text = playerScores[i].ToString();
+        }
     }
 }
