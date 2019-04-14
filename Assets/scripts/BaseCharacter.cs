@@ -64,8 +64,8 @@ public abstract class BaseCharacter : BaseCharacterParent
     {
         if (canUseInputs == true)
         {
-            if (isButtonDownThisFrame) { ButtonDownThisFrame(); }
-            if (isButtonUpThisFrame) { ButtonUpThisFrame(); }
+            if (isButtonDownThisFrame) { ButtonDownThisFrame(); FMODUnity.RuntimeManager.PlayOneShot("event:/start click");}
+            if (isButtonUpThisFrame) { ButtonUpThisFrame(); FMODUnity.RuntimeManager.PlayOneShot("event:/end click"); }
             if (isButtonHeldDown) { OnButtonHeldDown(); }
             if (isButtonHeldUp) { OnButtonHeldUp(); }
         }

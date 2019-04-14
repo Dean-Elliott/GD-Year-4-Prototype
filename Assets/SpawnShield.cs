@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using FMODUnity;
 
 public class SpawnShield : MonoBehaviour
 {
@@ -41,6 +42,7 @@ public class SpawnShield : MonoBehaviour
 
     public void PopShield()
     {
+        FMODUnity.RuntimeManager.PlayOneShot("event:/shield pop");
         myRigidbody.bodyType = RigidbodyType2D.Dynamic;
         myCharacter.isVulnerable = true;
         Destroy(gameObject);

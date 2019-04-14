@@ -29,6 +29,8 @@ public class FreeForAllGameMode : GameMode
         playerScores[attackerPlayerID] += 1;
 
         //HACK
+        //sound
+        FMODUnity.RuntimeManager.PlayOneShot("event:/player killed");
         //explosion
         GameObject newExplosion;
         newExplosion = Instantiate(explosionPrefab, players[VictimPlayerID].activeCharacterInScene.transform.position, Quaternion.identity);

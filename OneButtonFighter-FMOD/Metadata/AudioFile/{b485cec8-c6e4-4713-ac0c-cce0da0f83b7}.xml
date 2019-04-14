@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{b485cec8-c6e4-4713-ac0c-cce0da0f83b7}">
+        <property name="assetPath">
+            <value>pop 5.ogg</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>1.4758503401360543</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{c72b3bb6-9aa9-43fb-98e2-00d19ed9abed}</destination>
+        </relationship>
+    </object>
+</objects>
