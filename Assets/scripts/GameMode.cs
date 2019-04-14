@@ -21,6 +21,8 @@ public abstract class GameMode : MonoBehaviour
     //
     public bool isGameOver = false;
 
+    public SpriteRenderer fade;
+
     //HACK
     [Header("temp hack")]
     public TempGameModeInitializer spoofedPlayerDataGameObject;
@@ -155,10 +157,18 @@ public abstract class GameMode : MonoBehaviour
         Time.timeScale = .15f;
         Time.fixedDeltaTime = Time.timeScale / 60;
         print("game won, winner is: " + GameManager.gameManagerInstance.winningPlayerID.ToString());
+        StartCoroutine(fadeSpriteCoroutine());
         yield return new WaitForSecondsRealtime(3);
         Time.timeScale = 1f;
         Time.fixedDeltaTime = Time.timeScale / 60;
         print("done waiting, loading scene");
         SceneManager.LoadScene("PostGameScene");
+        
+    }
+
+    IEnumerator fadeSpriteCoroutine()
+    {
+        fade.color =  
+        yield return null;
     }
 }

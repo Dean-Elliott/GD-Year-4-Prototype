@@ -14,12 +14,19 @@ public class KingOfTheHillGameMode : GameMode
 
     public GameObject explosionPrefab;
 
-    public enum ScoreCalculationMode { allPlayersInZoneScore, firstPlayerInControlsPointUntilRemoved, firstPLayerInScoresOnlyIfUncontested}
+    public ChangeColorToWinningPlayer changeGlowBorderToWinningPlayer;
+    public ChangeColorToWinningPlayer changeCapturePointBorderColorToWinningPlayer;
+
+    List<GameObject> playersInCaptureZone;
+
+    public enum ScoreCalculationMode { allPlayersInZoneScore, firstPlayerInControlsPointUntilRemoved, firstPLayerInScoresOnlyIfUncontested }
 
     private void OnEnable()
     {
         SpawnAllPlayers();
         playerScores = new float[players.Count];
+
+        playersInCaptureZone = new List<GameObject>();
     }
 
     public void SpawnAllPlayers()
@@ -55,19 +62,59 @@ public class KingOfTheHillGameMode : GameMode
         RespawnPlayer(VictimPlayerID);
 
         //HACK
-        camshake.Shake();    
+        camshake.Shake();
     }
 
+    private void Update()
+    {
+        int numberOfPlayersInZoneNow = 0;
+        foreach (GameObject player in playersInCaptureZone)
+        {
+            numberOfPlayersInZoneNow += 1;
+        }
+        if (numberOfPlayersInZoneNow == 0 || numberOfPlayersInZoneNow >= 2)
+        {
+            ChangeCapturePointBorderColour(changeCapturePointBorderColorToWinningPlayer.defaultColor);
+        }
+        else if (numberOfPlayersInZoneNow == 1)
+        {
+            foreach (GameObject player in playersInCaptureZone)
+            {
+                ChangeCapturePointBorderColour(GameManager.gameManagerInstance.playerColors[player.GetComponentInParent<BaseCharacter>().myPlayerInfo.playerID]);
+            }
+        }
+        playersInCaptureZone.Clear();
+    }
+
+    public void ChangeCapturePointBorderColour(Color newColor)
+    {
+        changeCapturePointBorderColorToWinningPlayer.setColor(newColor);
+    }
 
     public void PlayerInCaptureZone(GameObject playerInZone)
     {
-        if(isGameOver == false)
+        if (isGameOver == false)
         {
-        playerScores[playerInZone.GetComponentInParent<BaseCharacter>().myPlayerInfo.playerID] += Time.fixedDeltaTime;
-        //print("red: " + (int)playerScores[0] + "  blue: " + (int)playerScores[1] + "  green: " + (int)playerScores[2] + "  yellow: " + (int)playerScores[3]);
-        Debug.Log(playerScores);
-        CheckWinCondition(playerInZone.GetComponentInParent<BaseCharacter>().myPlayerInfo.playerID);
-        UpdateUI();
+            playerScores[playerInZone.GetComponentInParent<BaseCharacter>().myPlayerInfo.playerID] += Time.fixedDeltaTime;
+
+            bool yes = true;
+            foreach (GameObject player in playersInCaptureZone)
+            {
+                if (player == playerInZone)
+                {
+                    yes = false;
+                }
+            }
+            if(yes == true)
+            {
+                playersInCaptureZone.Add(playerInZone);
+            }
+
+            //print("red: " + (int)playerScores[0] + "  blue: " + (int)playerScores[1] + "  green: " + (int)playerScores[2] + "  yellow: " + (int)playerScores[3]);
+            Debug.Log(playerScores);
+            CheckWinCondition(playerInZone.GetComponentInParent<BaseCharacter>().myPlayerInfo.playerID);
+            UpdateUI();
+            ChangeBackgroundColor();
         }
     }
 
@@ -86,6 +133,44 @@ public class KingOfTheHillGameMode : GameMode
         for (int i = 0; i < playerScoresTextMesh.Length; i++)
         {
             playerScoresTextMesh[i].text = ((int)playerScores[i]).ToString();
+        }
+    }
+
+
+    public void ChangeBackgroundColor()
+    {
+        //HACK
+        //change bg color
+        float highestScore = -1;
+        for (int i = 0; i < playerScores.Length; i++)
+        {
+            if (playerScores[i] > highestScore)
+            {
+                highestScore = playerScores[i];
+            }
+        }
+        int playersTiedForHighScore = 0;
+        for (int i = 0; i < playerScores.Length; i++)
+        {
+            if (playerScores[i] == highestScore)
+            {
+                playersTiedForHighScore += 1;
+            }
+        }
+        if (playersTiedForHighScore > 1)
+        {
+            changeGlowBorderToWinningPlayer.setColor(changeGlowBorderToWinningPlayer.defaultColor);
+        }
+        if (playersTiedForHighScore == 1)
+        {
+            Color winningPlayerColor;
+            for (int i = 0; i < playerScores.Length; i++)
+            {
+                if (playerScores[i] == highestScore)
+                {
+                    changeGlowBorderToWinningPlayer.setColor(GameManager.gameManagerInstance.playerColors[i]);
+                }
+            }
         }
     }
 }
