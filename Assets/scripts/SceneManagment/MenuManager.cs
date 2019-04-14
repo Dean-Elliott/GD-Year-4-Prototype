@@ -74,6 +74,15 @@ public class MenuManager : MonoBehaviour
 
     }
 
+    public void OnLevelWasLoaded(int level)
+    {
+        players = FindObjectOfType<TempGameModeInitializer>().spoofedPlayerData;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 
     public void CheckMultipleInputs ()
     {
