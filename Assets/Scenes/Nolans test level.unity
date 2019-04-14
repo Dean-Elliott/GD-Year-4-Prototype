@@ -685,7 +685,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &383634139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1899,7 +1899,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &921547827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1923,7 +1923,10 @@ MonoBehaviour:
   - {fileID: 195244357}
   - {fileID: 1516639539}
   playerScores: []
+  pointsToWin: 20
   capturePoint: {fileID: 847189959}
+  explosionPrefab: {fileID: 3832228693696169722, guid: 0b06dc305ac9b4e44b8b0e8757466571,
+    type: 3}
 --- !u!4 &921547828
 Transform:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public abstract class GameMode : MonoBehaviour
 
     public float respawnTime = 1f;
 
-    public GameObject []initialSpawnZones;
+    public GameObject[] initialSpawnZones;
 
     //HACK
     public CameraShake camshake;
@@ -24,12 +24,12 @@ public abstract class GameMode : MonoBehaviour
     private void Awake()
     {
         players = new Dictionary<int, Player>();
-        
+
         ///Aushton Change
         spoofedPlayerDataGameObject.CheckForPrevious();
-        spoofedPlayerDataGameObject = FindObjectOfType<TempGameModeInitializer>(); 
+        spoofedPlayerDataGameObject = FindObjectOfType<TempGameModeInitializer>();
         //
-        foreach(Player player in spoofedPlayerDataGameObject.spoofedPlayerData)
+        foreach (Player player in spoofedPlayerDataGameObject.spoofedPlayerData)
         {
             players.Add(player.playerID, player);
         }
@@ -44,7 +44,7 @@ public abstract class GameMode : MonoBehaviour
 
     private void Start()
     {
-        
+
     }
     private void OnLevelWasLoaded(int level)
     {
@@ -68,7 +68,7 @@ public abstract class GameMode : MonoBehaviour
             player.Value.activeCharacterInScene.GetComponentInChildren<SpawnShield>().isTimerStarted = false;
             player.Value.activeCharacterInSceneCharacterScript.canUseInputs = false;
         }
-            StartCoroutine(StartOfRoundCountdownTimer());
+        StartCoroutine(StartOfRoundCountdownTimer());
     }
 
     public virtual void AtEndOfOnEnable()
@@ -104,9 +104,9 @@ public abstract class GameMode : MonoBehaviour
         }
     }
 
-    public virtual void UpdateUI(){}
+    public virtual void UpdateUI() { }
 
-    public virtual void CharacterCollision(int attackerPlayerID, int VictimPlayerID){}
+    public virtual void CharacterCollision(int attackerPlayerID, int VictimPlayerID) { }
 
     public virtual GameObject FindNodeFarthestFromAnyActivePlayer(GameObject[] nodes)
     {
