@@ -685,7 +685,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &383634139
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -705,6 +705,7 @@ MonoBehaviour:
   - {fileID: 195244357}
   - {fileID: 1516639539}
   camshake: {fileID: 519420030}
+  isGameOver: 0
   spoofedPlayerDataGameObject: {fileID: 507352842}
   playerScores: 
   initialSpawnPoints:
@@ -720,6 +721,7 @@ MonoBehaviour:
   changeColorToWinningPlayer: {fileID: 2090181803}
   explosionPrefab: {fileID: 3832228693696169722, guid: 0b06dc305ac9b4e44b8b0e8757466571,
     type: 3}
+  pointsToWin: 1
 --- !u!4 &383634140
 Transform:
   m_ObjectHideFlags: 0
@@ -1166,6 +1168,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d005f2975af89b4384372118bb1961b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 0
   inputButton: 0
   playerID: 0
   teamID: 0
@@ -1216,6 +1219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d005f2975af89b4384372118bb1961b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 0
   inputButton: 2
   playerID: 2
   teamID: 2
@@ -1266,6 +1270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d005f2975af89b4384372118bb1961b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 0
   inputButton: 3
   playerID: 3
   teamID: 3
@@ -1910,6 +1915,7 @@ MonoBehaviour:
   respawnTime: 1
   initialSpawnZones: []
   camshake: {fileID: 519420030}
+  isGameOver: 0
   spoofedPlayerDataGameObject: {fileID: 507352842}
   spawnPoints:
   - {fileID: 1482791436}
@@ -2289,6 +2295,8 @@ MonoBehaviour:
   - {r: 0, g: 0, b: 1, a: 1}
   - {r: 0, g: 1, b: 0, a: 1}
   - {r: 0.9974991, g: 1, b: 0, a: 1}
+  spoofedPlayerData: {fileID: 0}
+  winningPlayerID: 0
 --- !u!4 &1224859189
 Transform:
   m_ObjectHideFlags: 0
@@ -2664,6 +2672,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d005f2975af89b4384372118bb1961b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isActive: 0
   inputButton: 1
   playerID: 1
   teamID: 1

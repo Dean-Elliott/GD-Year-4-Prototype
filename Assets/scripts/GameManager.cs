@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
 
     public enum GameMode { freeForAll, oddBall};
 
+    public int winningPlayerID;
+
     private void Awake()
     {
         if (gameManagerInstance != null)

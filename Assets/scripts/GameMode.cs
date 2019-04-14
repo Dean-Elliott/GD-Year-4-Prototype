@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public abstract class GameMode : MonoBehaviour
 {
@@ -13,6 +14,9 @@ public abstract class GameMode : MonoBehaviour
 
     //HACK
     public CameraShake camshake;
+
+    //
+    public bool isGameOver = false;
 
     //HACK
     [Header("temp hack")]
@@ -136,5 +140,22 @@ public abstract class GameMode : MonoBehaviour
             }
         }
         return furthestAwaySpawnPoint;
+    }
+
+    public virtual void CheckWinCondition(int scoringPlayer)
+    {
+
+    }
+    public IEnumerator GameWon()
+    {
+        isGameOver = true;
+        Time.timeScale = .15f;
+        Time.fixedDeltaTime = Time.timeScale / 60;
+        print("game won, winner is: " + GameManager.gameManagerInstance.winningPlayerID.ToString());
+        yield return new WaitForSecondsRealtime(3);
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = Time.timeScale / 60;
+        print("done waiting, loading scene");
+        SceneManager.LoadScene("PostGameScene");
     }
 }
