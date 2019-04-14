@@ -85,7 +85,7 @@ public class KingOfTheHillGameMode : GameMode
     {
         for (int i = 0; i < playerScoresTextMesh.Length; i++)
         {
-            playerScoresTextMesh[i].text = playerScores[i].ToString();
+            playerScoresTextMesh[i].text = ((int)playerScores[i]).ToString();
         }
     }
 }
