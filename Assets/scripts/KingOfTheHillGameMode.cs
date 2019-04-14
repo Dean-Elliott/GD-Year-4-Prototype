@@ -67,6 +67,7 @@ public class KingOfTheHillGameMode : GameMode
         //print("red: " + (int)playerScores[0] + "  blue: " + (int)playerScores[1] + "  green: " + (int)playerScores[2] + "  yellow: " + (int)playerScores[3]);
         Debug.Log(playerScores);
         CheckWinCondition(playerInZone.GetComponentInParent<BaseCharacter>().myPlayerInfo.playerID);
+        UpdateUI();
         }
     }
 
@@ -77,6 +78,14 @@ public class KingOfTheHillGameMode : GameMode
             GameManager.gameManagerInstance.winningPlayerID = scoringPlayer;
             isGameOver = true;
             StartCoroutine(GameWon());
+        }
+    }
+
+    public override void UpdateUI()
+    {
+        for (int i = 0; i < playerScoresTextMesh.Length; i++)
+        {
+            playerScoresTextMesh[i].text = playerScores[i].ToString();
         }
     }
 }

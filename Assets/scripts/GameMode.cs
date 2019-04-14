@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public abstract class GameMode : MonoBehaviour
 {
+    public TextMeshProUGUI[] playerScoresTextMesh; 
+
     // HACK :set up with spoofed data rn, integrate with aushton
     public Dictionary<int, Player> players;
 

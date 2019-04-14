@@ -44,6 +44,7 @@ public class FreeForAllGameMode : GameMode
         Destroy(players[VictimPlayerID].activeCharacterInScene);
         RespawnPlayer(VictimPlayerID);
 
+        UpdateUI();
 
         //HACK
         camshake.Shake();
@@ -54,6 +55,14 @@ public class FreeForAllGameMode : GameMode
         {
             CheckWinCondition(attackerPlayerID);
         }
+    }
+
+    public override void UpdateUI()
+    {
+        for (int i = 0; i < playerScoresTextMesh.Length; i++)
+        {
+            playerScoresTextMesh[i].text = playerScores[i].ToString();
+        }           
     }
 
     public override void CheckWinCondition(int scoringPlayer)
