@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Deans test level.unity
+- path: Assets/Scenes/Deans test level -BoraCopy.unity
   isLoaded: 1
   isActive: 1
