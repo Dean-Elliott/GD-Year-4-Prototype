@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.10.00">
+    <object class="AudioFile" id="{8509cccd-2251-4526-be24-307779eb25a1}">
+        <property name="assetPath">
+            <value>player collision.ogg</value>
+        </property>
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>8.0422448979591845</value>
+        </property>
+        <relationship name="masterAssetFolder">
+            <destination>{c72b3bb6-9aa9-43fb-98e2-00d19ed9abed}</destination>
+        </relationship>
+    </object>
+</objects>

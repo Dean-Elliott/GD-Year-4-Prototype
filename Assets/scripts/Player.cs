@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    //public bool isActive;
+    public bool isActive;
     public string inputButton; 
     public int playerID;
     public int teamID;

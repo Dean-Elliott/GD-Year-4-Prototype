@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class GameManager : MonoBehaviour
 {
     public GameObject[] allCharacterPrefabs;
@@ -10,7 +11,11 @@ public class GameManager : MonoBehaviour
    
     public static GameManager gameManagerInstance;
 
-    public enum GameMode { freeForAll, oddBall};
+    public GameObject spoofedPlayerData;
+
+    public enum GameMode { freeForAll, koth};
+
+    public int winningPlayerID;
 
     private void Awake()
     {
@@ -21,6 +26,11 @@ public class GameManager : MonoBehaviour
         else
         {
             gameManagerInstance = this;
+            DontDestroyOnLoad(this);
+
         }
+
+        spoofedPlayerData = FindObjectOfType<TempGameModeInitializer>().gameObject;
+        DontDestroyOnLoad(spoofedPlayerData);
     }
 }

@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 ﻿using UnityEngine;
+=======
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+>>>>>>> c3b0f08511e2e43fcee309d504dcd7e3c1ee3b35
 
 public class ShaderManager : MonoBehaviour
 {
@@ -23,6 +29,7 @@ public class ShaderManager : MonoBehaviour
     private GameObject greenPlayer;
     private GameObject yellowPlayer;
 
+<<<<<<< HEAD
 
     #endregion
 
@@ -45,35 +52,63 @@ public class ShaderManager : MonoBehaviour
     public ParticleSystem blueParticle;
     public ParticleSystem greenParticle;
     public ParticleSystem yellowParticle;
+=======
+>>>>>>> c3b0f08511e2e43fcee309d504dcd7e3c1ee3b35
     #endregion
 
     #region Scripts
 
     [Header("Scripts")]
 
+<<<<<<< HEAD
     public FreeForAllGameMode FFAScript;
 
+=======
+    public KingOfTheHillGameMode KOTHScript;
+    public FreeForAllGameMode FFAScript;
+    private basicCharacter characterScript;
+    public GameMode gameModeScript;
+    public Player[] playerScript;
+>>>>>>> c3b0f08511e2e43fcee309d504dcd7e3c1ee3b35
 
 
     #endregion
 
+<<<<<<< HEAD
 
     void Awake()
     {
         
+=======
+    void Awake()
+    {
+        characterScript = GetComponent<basicCharacter>();
+        //playerScript = GetComponent<Player>();
+>>>>>>> c3b0f08511e2e43fcee309d504dcd7e3c1ee3b35
     }
 
     void Start()
     {
+<<<<<<< HEAD
         redParticle.Play();
         blueParticle.Play();
         greenParticle.Play();
         yellowParticle.Play();
       
+=======
+
+        redPlayer = gameModeScript.players[0].activeCharacterInScene;
+        bluePlayer = gameModeScript.players[1].activeCharacterInScene;
+        greenPlayer = gameModeScript.players[2].activeCharacterInScene;
+        yellowPlayer = gameModeScript.players[3].activeCharacterInScene;
+
+
+>>>>>>> c3b0f08511e2e43fcee309d504dcd7e3c1ee3b35
     }
 
     void Update()
     {
+<<<<<<< HEAD
         ColorChanger();
 
     }
@@ -87,6 +122,28 @@ public class ShaderManager : MonoBehaviour
         var yellowEmission = yellowParticle.emission;
 
         #endregion
+=======
+        redPlayer = gameModeScript.players[0].activeCharacterInScene;
+        bluePlayer = gameModeScript.players[1].activeCharacterInScene;
+        greenPlayer = gameModeScript.players[2].activeCharacterInScene;
+        yellowPlayer = gameModeScript.players[3].activeCharacterInScene;
+
+        //if (GameModeNames.FreeForAll)
+        //{
+        //    ColorChangerFFA();
+        //}
+        //else
+        //{
+        //    ColorChangerKOTH();
+        //}
+
+
+
+
+    }
+    void ColorChangerFFA()
+    {
+>>>>>>> c3b0f08511e2e43fcee309d504dcd7e3c1ee3b35
 
         #region Red Player
 
@@ -94,28 +151,47 @@ public class ShaderManager : MonoBehaviour
         if (FFAScript.playerScores[0] > FFAScript.playerScores[1])
         {
             redPlayer.GetComponent<Renderer>().material = redHolo;
+<<<<<<< HEAD
             redEmission.rateOverTime = 10;
         }
         else
         {
             redPlayer.GetComponent<Renderer>().material = standardMat;
             redEmission.rateOverTime = 0;
+=======
+
+        }
+        else if ((FFAScript.playerScores[0] < FFAScript.playerScores[1]))
+        {
+            redPlayer.GetComponent<Renderer>().material = standardMat;
+
+>>>>>>> c3b0f08511e2e43fcee309d504dcd7e3c1ee3b35
         }
 
         if (FFAScript.playerScores[0] > FFAScript.playerScores[2])
         {
             redPlayer.GetComponent<Renderer>().material = redHolo;
+<<<<<<< HEAD
             redEmission.rateOverTime = 10;
         }
         else
         {
             redPlayer.GetComponent<Renderer>().material = standardMat;
             redEmission.rateOverTime = 0;
+=======
+
+        }
+        else if (FFAScript.playerScores[0] < FFAScript.playerScores[2])
+        {
+            redPlayer.GetComponent<Renderer>().material = standardMat;
+
+>>>>>>> c3b0f08511e2e43fcee309d504dcd7e3c1ee3b35
         }
 
         if (FFAScript.playerScores[0] > FFAScript.playerScores[3])
         {
             redPlayer.GetComponent<Renderer>().material = redHolo;
+<<<<<<< HEAD
             redEmission.rateOverTime = 10;
         }
 
@@ -123,6 +199,15 @@ public class ShaderManager : MonoBehaviour
         {
             redPlayer.GetComponent<Renderer>().material = standardMat;
             redEmission.rateOverTime = 0;
+=======
+
+        }
+
+        else if (FFAScript.playerScores[0] < FFAScript.playerScores[3])
+        {
+            redPlayer.GetComponent<Renderer>().material = standardMat;
+
+>>>>>>> c3b0f08511e2e43fcee309d504dcd7e3c1ee3b35
         }
 
         #endregion
@@ -135,12 +220,21 @@ public class ShaderManager : MonoBehaviour
         {
 
             bluePlayer.GetComponent<Renderer>().material = blueHolo;
+<<<<<<< HEAD
             blueEmission.rateOverTime = 10;
         }
         else
         {
             bluePlayer.GetComponent<Renderer>().material = standardMat;
             blueEmission.rateOverTime = 0;
+=======
+
+        }
+        else if (FFAScript.playerScores[1] < FFAScript.playerScores[0])
+        {
+            bluePlayer.GetComponent<Renderer>().material = standardMat;
+
+>>>>>>> c3b0f08511e2e43fcee309d504dcd7e3c1ee3b35
 
         }
 
@@ -148,12 +242,21 @@ public class ShaderManager : MonoBehaviour
         {
 
             bluePlayer.GetComponent<Renderer>().material = blueHolo;
+<<<<<<< HEAD
             blueEmission.rateOverTime = 10;
         }
         else
         {
             bluePlayer.GetComponent<Renderer>().material = standardMat;
             blueEmission.rateOverTime = 0;
+=======
+
+        }
+        else if (FFAScript.playerScores[1] < FFAScript.playerScores[2])
+        {
+            bluePlayer.GetComponent<Renderer>().material = standardMat;
+
+>>>>>>> c3b0f08511e2e43fcee309d504dcd7e3c1ee3b35
 
         }
 
@@ -161,12 +264,21 @@ public class ShaderManager : MonoBehaviour
         {
 
             bluePlayer.GetComponent<Renderer>().material = blueHolo;
+<<<<<<< HEAD
             blueEmission.rateOverTime = 10;
         }
         else
         {
             bluePlayer.GetComponent<Renderer>().material = standardMat;
             blueEmission.rateOverTime = 0;
+=======
+
+        }
+        else if (FFAScript.playerScores[1] < FFAScript.playerScores[3])
+        {
+            bluePlayer.GetComponent<Renderer>().material = standardMat;
+
+>>>>>>> c3b0f08511e2e43fcee309d504dcd7e3c1ee3b35
 
         }
 
@@ -180,12 +292,20 @@ public class ShaderManager : MonoBehaviour
         {
 
             greenPlayer.GetComponent<Renderer>().material = greenHolo;
+<<<<<<< HEAD
             greenEmission.rateOverTime = 10;
         }
         else
         {
             greenPlayer.GetComponent<Renderer>().material = standardMat;
             greenEmission.rateOverTime = 0;
+=======
+
+        }
+        else if (FFAScript.playerScores[2] < FFAScript.playerScores[0])
+        {
+            greenPlayer.GetComponent<Renderer>().material = standardMat;
+>>>>>>> c3b0f08511e2e43fcee309d504dcd7e3c1ee3b35
 
         }
 
@@ -193,12 +313,20 @@ public class ShaderManager : MonoBehaviour
         {
 
             greenPlayer.GetComponent<Renderer>().material = greenHolo;
+<<<<<<< HEAD
             greenEmission.rateOverTime = 10;
         }
         else
         {
             greenPlayer.GetComponent<Renderer>().material = standardMat;
             greenEmission.rateOverTime = 0;
+=======
+
+        }
+        else if (FFAScript.playerScores[2] < FFAScript.playerScores[1])
+        {
+            greenPlayer.GetComponent<Renderer>().material = standardMat;
+>>>>>>> c3b0f08511e2e43fcee309d504dcd7e3c1ee3b35
 
         }
 
@@ -206,12 +334,21 @@ public class ShaderManager : MonoBehaviour
         {
 
             greenPlayer.GetComponent<Renderer>().material = greenHolo;
+<<<<<<< HEAD
             greenEmission.rateOverTime = 10;
         }
         else
         {
             greenPlayer.GetComponent<Renderer>().material = standardMat;
             greenEmission.rateOverTime = 0;
+=======
+
+        }
+        else if (FFAScript.playerScores[2] < FFAScript.playerScores[3])
+        {
+            greenPlayer.GetComponent<Renderer>().material = standardMat;
+
+>>>>>>> c3b0f08511e2e43fcee309d504dcd7e3c1ee3b35
 
         }
 
@@ -224,12 +361,21 @@ public class ShaderManager : MonoBehaviour
         {
 
             yellowPlayer.GetComponent<Renderer>().material = yellowHolo;
+<<<<<<< HEAD
             greenEmission.rateOverTime = 10;
         }
         else
         {
             yellowPlayer.GetComponent<Renderer>().material = standardMat;
             yellowEmission.rateOverTime = 0;
+=======
+
+        }
+        else if (FFAScript.playerScores[3] < FFAScript.playerScores[0])
+        {
+            yellowPlayer.GetComponent<Renderer>().material = standardMat;
+
+>>>>>>> c3b0f08511e2e43fcee309d504dcd7e3c1ee3b35
 
         }
 
@@ -237,12 +383,21 @@ public class ShaderManager : MonoBehaviour
         {
 
             yellowPlayer.GetComponent<Renderer>().material = yellowHolo;
+<<<<<<< HEAD
             yellowEmission.rateOverTime = 10;
         }
         else
         {
             yellowPlayer.GetComponent<Renderer>().material = standardMat;
             yellowEmission.rateOverTime = 0;
+=======
+
+        }
+        else if (FFAScript.playerScores[3] < FFAScript.playerScores[1])
+        {
+            yellowPlayer.GetComponent<Renderer>().material = standardMat;
+
+>>>>>>> c3b0f08511e2e43fcee309d504dcd7e3c1ee3b35
 
         }
 
@@ -250,17 +405,26 @@ public class ShaderManager : MonoBehaviour
         {
 
             yellowPlayer.GetComponent<Renderer>().material = yellowHolo;
+<<<<<<< HEAD
             yellowEmission.rateOverTime = 10;
         }
         else
         {
             yellowPlayer.GetComponent<Renderer>().material = standardMat;
             yellowEmission.rateOverTime = 0;
+=======
+
+        }
+        else if (FFAScript.playerScores[3] < FFAScript.playerScores[2])
+        {
+            yellowPlayer.GetComponent<Renderer>().material = standardMat;
+>>>>>>> c3b0f08511e2e43fcee309d504dcd7e3c1ee3b35
 
         }
 
         #endregion
     }
+<<<<<<< HEAD
     void InstantiateParticles()
     {
         Instantiate(redParticle, redPlayer.transform.position, Quaternion.identity);
@@ -269,5 +433,179 @@ public class ShaderManager : MonoBehaviour
         Instantiate(yellowParticle, yellowPlayer.transform.position, Quaternion.identity);
 
 
+=======
+    void ColorChangerKOTH()
+    {
+
+        #region Red Player
+
+        ////Red Player
+        if (KOTHScript.playerScores[0] > KOTHScript.playerScores[1])
+        {
+            redPlayer.GetComponent<Renderer>().material = redHolo;
+
+        }
+        else if ((KOTHScript.playerScores[0] < KOTHScript.playerScores[1]))
+        {
+            redPlayer.GetComponent<Renderer>().material = standardMat;
+
+        }
+
+        if (KOTHScript.playerScores[0] > KOTHScript.playerScores[2])
+        {
+            redPlayer.GetComponent<Renderer>().material = redHolo;
+
+        }
+        else if (KOTHScript.playerScores[0] < KOTHScript.playerScores[2])
+        {
+            redPlayer.GetComponent<Renderer>().material = standardMat;
+
+        }
+
+        if (KOTHScript.playerScores[0] > KOTHScript.playerScores[3])
+        {
+            redPlayer.GetComponent<Renderer>().material = redHolo;
+
+        }
+
+        else if (KOTHScript.playerScores[0] < KOTHScript.playerScores[3])
+        {
+            redPlayer.GetComponent<Renderer>().material = standardMat;
+
+        }
+
+        #endregion
+
+        #region Blue Player
+
+        ////Blue Player
+
+        if (KOTHScript.playerScores[1] > KOTHScript.playerScores[0])
+        {
+
+            bluePlayer.GetComponent<Renderer>().material = blueHolo;
+
+        }
+        else if (KOTHScript.playerScores[1] < KOTHScript.playerScores[0])
+        {
+            bluePlayer.GetComponent<Renderer>().material = standardMat;
+
+
+        }
+
+        if (KOTHScript.playerScores[1] > KOTHScript.playerScores[2])
+        {
+
+            bluePlayer.GetComponent<Renderer>().material = blueHolo;
+
+        }
+        else if (KOTHScript.playerScores[1] < KOTHScript.playerScores[2])
+        {
+            bluePlayer.GetComponent<Renderer>().material = standardMat;
+
+
+        }
+
+        if (KOTHScript.playerScores[1] > KOTHScript.playerScores[3])
+        {
+
+            bluePlayer.GetComponent<Renderer>().material = blueHolo;
+
+        }
+        else if (KOTHScript.playerScores[1] < KOTHScript.playerScores[3])
+        {
+            bluePlayer.GetComponent<Renderer>().material = standardMat;
+
+
+        }
+
+        #endregion
+
+        #region Green Player
+
+        ////Green Player
+
+        if (KOTHScript.playerScores[2] > KOTHScript.playerScores[0])
+        {
+
+            greenPlayer.GetComponent<Renderer>().material = greenHolo;
+
+        }
+        else if (KOTHScript.playerScores[2] < KOTHScript.playerScores[0])
+        {
+            greenPlayer.GetComponent<Renderer>().material = standardMat;
+
+        }
+
+        if (KOTHScript.playerScores[2] > KOTHScript.playerScores[1])
+        {
+
+            greenPlayer.GetComponent<Renderer>().material = greenHolo;
+
+        }
+        else if (KOTHScript.playerScores[2] < KOTHScript.playerScores[1])
+        {
+            greenPlayer.GetComponent<Renderer>().material = standardMat;
+
+        }
+
+        if (KOTHScript.playerScores[2] > KOTHScript.playerScores[3])
+        {
+
+            greenPlayer.GetComponent<Renderer>().material = greenHolo;
+
+        }
+        else if (KOTHScript.playerScores[2] < KOTHScript.playerScores[3])
+        {
+            greenPlayer.GetComponent<Renderer>().material = standardMat;
+
+
+        }
+
+        #endregion
+
+        #region Yellow Player
+        ////Yellow Player
+
+        if (KOTHScript.playerScores[3] > KOTHScript.playerScores[0])
+        {
+
+            yellowPlayer.GetComponent<Renderer>().material = yellowHolo;
+
+        }
+        else if (KOTHScript.playerScores[3] < KOTHScript.playerScores[0])
+        {
+            yellowPlayer.GetComponent<Renderer>().material = standardMat;
+
+
+        }
+
+        if (KOTHScript.playerScores[3] > KOTHScript.playerScores[1])
+        {
+
+            yellowPlayer.GetComponent<Renderer>().material = yellowHolo;
+
+        }
+        else if (FFAScript.playerScores[3] < FFAScript.playerScores[1])
+        {
+            yellowPlayer.GetComponent<Renderer>().material = standardMat;
+
+
+        }
+
+        if (KOTHScript.playerScores[3] > KOTHScript.playerScores[2])
+        {
+
+            yellowPlayer.GetComponent<Renderer>().material = yellowHolo;
+
+        }
+        else if (KOTHScript.playerScores[3] < KOTHScript.playerScores[2])
+        {
+            yellowPlayer.GetComponent<Renderer>().material = standardMat;
+
+        }
+
+        #endregion
+>>>>>>> c3b0f08511e2e43fcee309d504dcd7e3c1ee3b35
     }
 }
