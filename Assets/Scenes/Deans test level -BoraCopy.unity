@@ -2215,7 +2215,7 @@ MonoBehaviour:
   thisMap:
     m_Handle: 0
   freeForAll: {fileID: 0}
-  kingOfTheHill: {fileID: 0}
+  kingOfTheHill: {fileID: 921547827}
 --- !u!4 &810378570
 Transform:
   m_ObjectHideFlags: 0
@@ -5948,6 +5948,11 @@ PrefabInstance:
       propertyPath: FFAScript
       value: 
       objectReference: {fileID: 383634139}
+    - target: {fileID: 3098448518317532188, guid: 6935478306f15244d97cadbe56f9aafa,
+        type: 3}
+      propertyPath: MapGameModeManagerScript
+      value: 
+      objectReference: {fileID: 810378569}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6935478306f15244d97cadbe56f9aafa, type: 3}
 --- !u!1 &2090181801

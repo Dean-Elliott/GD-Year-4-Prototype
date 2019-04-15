@@ -31,20 +31,13 @@ public class ShaderManager : MonoBehaviour
 
     [Header("Scripts")]
 
+    public MapGameModeManager MapGameModeManagerScript;
     public KingOfTheHillGameMode KOTHScript;
     public FreeForAllGameMode FFAScript;
-    private basicCharacter characterScript;
     public GameMode gameModeScript;
     public Player[] playerScript;
 
-
     #endregion
-
-    void Awake()
-    {
-        characterScript = GetComponent<basicCharacter>();
-        //playerScript = GetComponent<Player>();
-    }
 
     void Start()
     {
@@ -64,14 +57,16 @@ public class ShaderManager : MonoBehaviour
         greenPlayer = gameModeScript.players[2].activeCharacterInScene;
         yellowPlayer = gameModeScript.players[3].activeCharacterInScene;
 
-        //if (GameModeNames.FreeForAll)
-        //{
-        //    ColorChangerFFA();
-        //}
-        //else
-        //{
-        //    ColorChangerKOTH();
-        //}
+        if (MapGameModeManagerScript.freeForAll)
+        {
+            print("FFA");
+            ColorChangerFFA();
+        }
+        else if (MapGameModeManagerScript.kingOfTheHill)
+        {
+            print("KOTH");
+            ColorChangerKOTH();
+        }
 
 
 
@@ -88,7 +83,7 @@ public class ShaderManager : MonoBehaviour
             redPlayer.GetComponent<Renderer>().material = redHolo;
 
         }
-        else if ((FFAScript.playerScores[0] < FFAScript.playerScores[1]))
+        else
         {
             redPlayer.GetComponent<Renderer>().material = standardMat;
 
@@ -99,7 +94,7 @@ public class ShaderManager : MonoBehaviour
             redPlayer.GetComponent<Renderer>().material = redHolo;
 
         }
-        else if (FFAScript.playerScores[0] < FFAScript.playerScores[2])
+        else
         {
             redPlayer.GetComponent<Renderer>().material = standardMat;
 
@@ -111,7 +106,7 @@ public class ShaderManager : MonoBehaviour
 
         }
 
-        else if (FFAScript.playerScores[0] < FFAScript.playerScores[3])
+        else
         {
             redPlayer.GetComponent<Renderer>().material = standardMat;
 
@@ -129,7 +124,7 @@ public class ShaderManager : MonoBehaviour
             bluePlayer.GetComponent<Renderer>().material = blueHolo;
 
         }
-        else if (FFAScript.playerScores[1] < FFAScript.playerScores[0])
+        else
         {
             bluePlayer.GetComponent<Renderer>().material = standardMat;
 
@@ -142,7 +137,7 @@ public class ShaderManager : MonoBehaviour
             bluePlayer.GetComponent<Renderer>().material = blueHolo;
 
         }
-        else if (FFAScript.playerScores[1] < FFAScript.playerScores[2])
+        else
         {
             bluePlayer.GetComponent<Renderer>().material = standardMat;
 
@@ -155,7 +150,7 @@ public class ShaderManager : MonoBehaviour
             bluePlayer.GetComponent<Renderer>().material = blueHolo;
 
         }
-        else if (FFAScript.playerScores[1] < FFAScript.playerScores[3])
+        else
         {
             bluePlayer.GetComponent<Renderer>().material = standardMat;
 
@@ -174,7 +169,7 @@ public class ShaderManager : MonoBehaviour
             greenPlayer.GetComponent<Renderer>().material = greenHolo;
 
         }
-        else if (FFAScript.playerScores[2] < FFAScript.playerScores[0])
+        else
         {
             greenPlayer.GetComponent<Renderer>().material = standardMat;
 
@@ -186,7 +181,7 @@ public class ShaderManager : MonoBehaviour
             greenPlayer.GetComponent<Renderer>().material = greenHolo;
 
         }
-        else if (FFAScript.playerScores[2] < FFAScript.playerScores[1])
+        else
         {
             greenPlayer.GetComponent<Renderer>().material = standardMat;
 
@@ -198,7 +193,7 @@ public class ShaderManager : MonoBehaviour
             greenPlayer.GetComponent<Renderer>().material = greenHolo;
 
         }
-        else if (FFAScript.playerScores[2] < FFAScript.playerScores[3])
+        else
         {
             greenPlayer.GetComponent<Renderer>().material = standardMat;
 
@@ -216,7 +211,7 @@ public class ShaderManager : MonoBehaviour
             yellowPlayer.GetComponent<Renderer>().material = yellowHolo;
 
         }
-        else if (FFAScript.playerScores[3] < FFAScript.playerScores[0])
+        else
         {
             yellowPlayer.GetComponent<Renderer>().material = standardMat;
 
@@ -229,7 +224,7 @@ public class ShaderManager : MonoBehaviour
             yellowPlayer.GetComponent<Renderer>().material = yellowHolo;
 
         }
-        else if (FFAScript.playerScores[3] < FFAScript.playerScores[1])
+        else
         {
             yellowPlayer.GetComponent<Renderer>().material = standardMat;
 
@@ -242,7 +237,7 @@ public class ShaderManager : MonoBehaviour
             yellowPlayer.GetComponent<Renderer>().material = yellowHolo;
 
         }
-        else if (FFAScript.playerScores[3] < FFAScript.playerScores[2])
+        else
         {
             yellowPlayer.GetComponent<Renderer>().material = standardMat;
 
@@ -261,7 +256,7 @@ public class ShaderManager : MonoBehaviour
             redPlayer.GetComponent<Renderer>().material = redHolo;
 
         }
-        else if ((KOTHScript.playerScores[0] < KOTHScript.playerScores[1]))
+        else
         {
             redPlayer.GetComponent<Renderer>().material = standardMat;
 
@@ -272,8 +267,9 @@ public class ShaderManager : MonoBehaviour
             redPlayer.GetComponent<Renderer>().material = redHolo;
 
         }
-        else if (KOTHScript.playerScores[0] < KOTHScript.playerScores[2])
+        else
         {
+
             redPlayer.GetComponent<Renderer>().material = standardMat;
 
         }
@@ -284,7 +280,7 @@ public class ShaderManager : MonoBehaviour
 
         }
 
-        else if (KOTHScript.playerScores[0] < KOTHScript.playerScores[3])
+        else
         {
             redPlayer.GetComponent<Renderer>().material = standardMat;
 
@@ -302,7 +298,7 @@ public class ShaderManager : MonoBehaviour
             bluePlayer.GetComponent<Renderer>().material = blueHolo;
 
         }
-        else if (KOTHScript.playerScores[1] < KOTHScript.playerScores[0])
+        else
         {
             bluePlayer.GetComponent<Renderer>().material = standardMat;
 
@@ -315,7 +311,7 @@ public class ShaderManager : MonoBehaviour
             bluePlayer.GetComponent<Renderer>().material = blueHolo;
 
         }
-        else if (KOTHScript.playerScores[1] < KOTHScript.playerScores[2])
+        else
         {
             bluePlayer.GetComponent<Renderer>().material = standardMat;
 
@@ -328,7 +324,7 @@ public class ShaderManager : MonoBehaviour
             bluePlayer.GetComponent<Renderer>().material = blueHolo;
 
         }
-        else if (KOTHScript.playerScores[1] < KOTHScript.playerScores[3])
+        else
         {
             bluePlayer.GetComponent<Renderer>().material = standardMat;
 
@@ -347,7 +343,7 @@ public class ShaderManager : MonoBehaviour
             greenPlayer.GetComponent<Renderer>().material = greenHolo;
 
         }
-        else if (KOTHScript.playerScores[2] < KOTHScript.playerScores[0])
+        else
         {
             greenPlayer.GetComponent<Renderer>().material = standardMat;
 
@@ -359,7 +355,7 @@ public class ShaderManager : MonoBehaviour
             greenPlayer.GetComponent<Renderer>().material = greenHolo;
 
         }
-        else if (KOTHScript.playerScores[2] < KOTHScript.playerScores[1])
+        else
         {
             greenPlayer.GetComponent<Renderer>().material = standardMat;
 
@@ -371,7 +367,7 @@ public class ShaderManager : MonoBehaviour
             greenPlayer.GetComponent<Renderer>().material = greenHolo;
 
         }
-        else if (KOTHScript.playerScores[2] < KOTHScript.playerScores[3])
+        else
         {
             greenPlayer.GetComponent<Renderer>().material = standardMat;
 
@@ -389,7 +385,7 @@ public class ShaderManager : MonoBehaviour
             yellowPlayer.GetComponent<Renderer>().material = yellowHolo;
 
         }
-        else if (KOTHScript.playerScores[3] < KOTHScript.playerScores[0])
+        else
         {
             yellowPlayer.GetComponent<Renderer>().material = standardMat;
 
@@ -402,7 +398,7 @@ public class ShaderManager : MonoBehaviour
             yellowPlayer.GetComponent<Renderer>().material = yellowHolo;
 
         }
-        else if (FFAScript.playerScores[3] < FFAScript.playerScores[1])
+
         {
             yellowPlayer.GetComponent<Renderer>().material = standardMat;
 
@@ -415,7 +411,7 @@ public class ShaderManager : MonoBehaviour
             yellowPlayer.GetComponent<Renderer>().material = yellowHolo;
 
         }
-        else if (KOTHScript.playerScores[3] < KOTHScript.playerScores[2])
+        else
         {
             yellowPlayer.GetComponent<Renderer>().material = standardMat;
 
