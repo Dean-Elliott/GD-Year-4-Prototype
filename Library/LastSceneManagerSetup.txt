@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Deans test level -BoraCopy.unity
+- path: Assets/Scenes/KOTH-Map3.unity
   isLoaded: 1
   isActive: 1
