@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/FFA with center obstacle.unity
+- path: Assets/Scenes/Playable_Maps/Deans test level.unity
   isLoaded: 1
   isActive: 1
