@@ -12,15 +12,30 @@ EditorBuildSettings:
     path: Assets/Scenes/menuTest.unity
     guid: b0fc6d3abfe879349b86250d83817068
   - enabled: 1
-    path: Assets/Scenes/Nolans test level.unity
-    guid: f8689a70b21261347a22456f11eed6f1
-  - enabled: 1
-    path: Assets/Scenes/FFA-Test.unity
-    guid: 8953837a3e2b4384cad58aeb69b8135e
-  - enabled: 1
     path: Assets/Scenes/PostGameScene.unity
     guid: adfe40e657e64a646b5f34f955fbd5cd
   - enabled: 1
     path: Assets/Scenes/soundDesignScene.unity
     guid: a23a2ec1b6dbdb04eba38d3e27fd602c
+  - enabled: 1
+    path: Assets/Scenes/Playable_Maps/FFA-Circle.unity
+    guid: a490f0398d826d748a3984291e5c411f
+  - enabled: 1
+    path: Assets/Scenes/Playable_Maps/FFA-Jesus.unity
+    guid: 699c441a6d7add24d860ffaa741d515e
+  - enabled: 1
+    path: Assets/Scenes/Playable_Maps/FFA-Portals.unity
+    guid: 67c450968ff939b46a40724d6508cbea
+  - enabled: 1
+    path: Assets/Scenes/Playable_Maps/FFA_Map_Middle_Block.unity
+    guid: 70eee20581af0fb4fbfa5adbabc392f3
+  - enabled: 1
+    path: Assets/Scenes/Playable_Maps/KOTH-Map3.unity
+    guid: 01f390d931d30434ab3f8c381e1d22cc
+  - enabled: 1
+    path: Assets/Scenes/Playable_Maps/KOTH-MovingPortals.unity
+    guid: bdaf482386fc66b47ad8e24913c0f02c
+  - enabled: 1
+    path: Assets/Scenes/Playable_Maps/KOTH-Spin2Win.unity
+    guid: def5fc5e22d05f146a7315e84178cdba
   m_configObjects: {}
