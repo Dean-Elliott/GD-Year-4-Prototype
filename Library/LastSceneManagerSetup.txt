@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Deans test level -BoraCopy.unity
+- path: Assets/Scenes/FFA with center obstacle.unity
   isLoaded: 1
   isActive: 1
