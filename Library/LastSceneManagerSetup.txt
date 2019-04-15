@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Playable_Maps/FFA-Portals.unity
+- path: Assets/Scenes/FFA with center obstacle.unity
   isLoaded: 1
   isActive: 1
