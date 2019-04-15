@@ -34,6 +34,7 @@ public class MenuManager : MonoBehaviour
 
     public GameObject charSelectCanvas;
 
+    public ReadyZone readyZone; 
     public Player[] players = new Player[4];
     public Transform[] spawnPoints = new Transform[4];
 
@@ -73,6 +74,15 @@ public class MenuManager : MonoBehaviour
 
     }
 
+    public void OnLevelWasLoaded(int level)
+    {
+        players = FindObjectOfType<TempGameModeInitializer>().spoofedPlayerData;
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
 
     public void CheckMultipleInputs ()
     {
@@ -82,7 +92,6 @@ public class MenuManager : MonoBehaviour
             if (Input.GetButton(player.inputButton))
             {
                 
-
                 timePressed[ID] += Time.deltaTime;
 
                 if (timePressed[ID] > selectTime)
@@ -118,6 +127,32 @@ public class MenuManager : MonoBehaviour
         }
     }
 
+
+    public void ReadyUp()
+    {
+        int activePlayers= 0;
+
+        foreach (Player player in players)
+        {
+            if (player.isActive)
+            {
+                activePlayers++;
+            }
+        }
+
+        if (activePlayers > 1)
+        {
+
+if (readyZone.playersInZone == activePlayers)
+            {
+                foreach (Player player in players)
+                {
+                    Destroy(player.activeCharacterInScene);
+                }
+                SceneManager.LoadScene(selectedMap);
+            }
+        }
+    }
     public void NextCharacter( int playerID)
     {
         Player player = players[playerID]; 

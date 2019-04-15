@@ -1,18 +1,27 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public abstract class GameMode : MonoBehaviour
 {
+    public TextMeshProUGUI[] playerScoresTextMesh; 
+
     // HACK :set up with spoofed data rn, integrate with aushton
     public Dictionary<int, Player> players;
 
     public float respawnTime = 1f;
 
-    public GameObject []initialSpawnZones;
+    public GameObject[] initialSpawnZones;
 
     //HACK
     public CameraShake camshake;
+
+    //
+    public bool isGameOver = false;
+
+    public SpriteRenderer fade;
 
     //HACK
     [Header("temp hack")]
@@ -20,7 +29,12 @@ public abstract class GameMode : MonoBehaviour
     private void Awake()
     {
         players = new Dictionary<int, Player>();
-        foreach(Player player in spoofedPlayerDataGameObject.spoofedPlayerData)
+
+        ///Aushton Change
+        spoofedPlayerDataGameObject.CheckForPrevious();
+        spoofedPlayerDataGameObject = FindObjectOfType<TempGameModeInitializer>();
+        //
+        foreach (Player player in spoofedPlayerDataGameObject.spoofedPlayerData)
         {
             players.Add(player.playerID, player);
         }
@@ -33,6 +47,24 @@ public abstract class GameMode : MonoBehaviour
         MatchStart();
     }
 
+    private void Start()
+    {
+
+    }
+    private void OnLevelWasLoaded(int level)
+    {
+        if (spoofedPlayerDataGameObject == null)
+        {
+            spoofedPlayerDataGameObject = FindObjectOfType<TempGameModeInitializer>();
+
+            players.Clear();
+            foreach (Player player in spoofedPlayerDataGameObject.spoofedPlayerData)
+            {
+                players.Add(player.playerID, player);
+            }
+        }
+    }
+
     private void MatchStart()
     {
         SpawnAllPlayers(initialSpawnZones);
@@ -41,7 +73,7 @@ public abstract class GameMode : MonoBehaviour
             player.Value.activeCharacterInScene.GetComponentInChildren<SpawnShield>().isTimerStarted = false;
             player.Value.activeCharacterInSceneCharacterScript.canUseInputs = false;
         }
-            StartCoroutine(StartOfRoundCountdownTimer());
+        StartCoroutine(StartOfRoundCountdownTimer());
     }
 
     public virtual void AtEndOfOnEnable()
@@ -77,9 +109,9 @@ public abstract class GameMode : MonoBehaviour
         }
     }
 
-    public virtual void UpdateUI(){}
+    public virtual void UpdateUI() { }
 
-    public virtual void CharacterCollision(int attackerPlayerID, int VictimPlayerID){}
+    public virtual void CharacterCollision(int attackerPlayerID, int VictimPlayerID) { }
 
     public virtual GameObject FindNodeFarthestFromAnyActivePlayer(GameObject[] nodes)
     {
@@ -113,5 +145,30 @@ public abstract class GameMode : MonoBehaviour
             }
         }
         return furthestAwaySpawnPoint;
+    }
+
+    public virtual void CheckWinCondition(int scoringPlayer)
+    {
+
+    }
+    public IEnumerator GameWon()
+    {
+        isGameOver = true;
+        Time.timeScale = .15f;
+        Time.fixedDeltaTime = Time.timeScale / 60;
+        print("game won, winner is: " + GameManager.gameManagerInstance.winningPlayerID.ToString());
+        StartCoroutine(fadeSpriteCoroutine());
+        yield return new WaitForSecondsRealtime(3);
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = Time.timeScale / 60;
+        print("done waiting, loading scene");
+        SceneManager.LoadScene("PostGameScene");
+        
+    }
+
+    IEnumerator fadeSpriteCoroutine()
+    {
+        //fade.color =  
+        yield return null;
     }
 }
