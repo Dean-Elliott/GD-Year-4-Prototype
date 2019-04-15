@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/Scenes/Playable_Maps/Deans test level.unity
+- path: Assets/Scenes/Playable_Maps/FFA-Jesus.unity
   isLoaded: 1
   isActive: 1
