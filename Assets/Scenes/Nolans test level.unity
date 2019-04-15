@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 61225681}
   - component: {fileID: 61225682}
+  - component: {fileID: 61225683}
   m_Layer: 0
   m_Name: outline
   m_TagString: Untagged
@@ -191,6 +192,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &61225683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61225680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c55a26db6abb3c1478e2c336f4a989c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultColor: {r: 0.87843144, g: 0.87843144, b: 0.87843144, a: 1}
 --- !u!1 &77822758
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,6 +721,7 @@ MonoBehaviour:
   - {fileID: 1516639539}
   camshake: {fileID: 519420030}
   isGameOver: 0
+  fade: {fileID: 0}
   spoofedPlayerDataGameObject: {fileID: 507352842}
   playerScores: 
   initialSpawnPoints:
@@ -722,7 +737,7 @@ MonoBehaviour:
   changeColorToWinningPlayer: {fileID: 2090181803}
   explosionPrefab: {fileID: 3832228693696169722, guid: 0b06dc305ac9b4e44b8b0e8757466571,
     type: 3}
-  pointsToWin: 22
+  pointsToWin: 20
 --- !u!4 &383634140
 Transform:
   m_ObjectHideFlags: 0
@@ -1503,7 +1518,7 @@ Transform:
   m_LocalScale: {x: 5.971187, y: 5.971187, z: 5.971187}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &718186689
 GameObject:
@@ -2195,6 +2210,7 @@ MonoBehaviour:
   initialSpawnZones: []
   camshake: {fileID: 519420030}
   isGameOver: 0
+  fade: {fileID: 0}
   spoofedPlayerDataGameObject: {fileID: 507352842}
   spawnPoints:
   - {fileID: 1482791436}
@@ -2206,6 +2222,8 @@ MonoBehaviour:
   capturePoint: {fileID: 847189959}
   explosionPrefab: {fileID: 3832228693696169722, guid: 0b06dc305ac9b4e44b8b0e8757466571,
     type: 3}
+  changeGlowBorderToWinningPlayer: {fileID: 2090181803}
+  changeCapturePointBorderColorToWinningPlayer: {fileID: 61225683}
 --- !u!4 &921547828
 Transform:
   m_ObjectHideFlags: 0
@@ -3063,7 +3081,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1615930013
 GameObject:

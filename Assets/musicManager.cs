@@ -5,8 +5,16 @@ using FMODUnity;
 
 public class musicManager : MonoBehaviour
 {
+    FMOD.Studio.EventInstance music;
+
     private void Awake()
     {
-        FMODUnity.RuntimeManager.PlayOneShot("event:/music");
+        music = FMODUnity.RuntimeManager.CreateInstance("event:/music");
+        music.start();
+    }
+
+    private void OnDisable()
+    {
+        music.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
     }
 }

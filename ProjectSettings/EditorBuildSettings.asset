@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PostGameScene.unity
     guid: adfe40e657e64a646b5f34f955fbd5cd
+  - enabled: 1
+    path: Assets/Scenes/soundDesignScene.unity
+    guid: a23a2ec1b6dbdb04eba38d3e27fd602c
   m_configObjects: {}
