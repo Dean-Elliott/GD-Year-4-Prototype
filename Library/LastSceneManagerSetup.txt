@@ -1,8 +1,4 @@
 sceneSetups:
-<<<<<<< HEAD
-- path: Assets/Scenes/Boras Test Level.unity
-=======
-- path: Assets/Scenes/Playable_Maps/FFA-Jesus.unity
->>>>>>> parent of c3b0f08... Build
+- path: Assets/Scenes/menuTest.unity
   isLoaded: 1
   isActive: 1

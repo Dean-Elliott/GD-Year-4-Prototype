@@ -8,11 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: mat_Blue_Shader
-<<<<<<< HEAD
-  m_Shader: {fileID: 4800000, guid: 45749b793dfb80c4084b7ed5146d88ce, type: 3}
-=======
   m_Shader: {fileID: 4800000, guid: 37bab4c2541caf94c9c72a7671e51922, type: 3}
->>>>>>> c3b0f08511e2e43fcee309d504dcd7e3c1ee3b35
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -25,9 +21,5 @@ Material:
     m_TexEnvs: []
     m_Floats:
     - _bands: 94
-<<<<<<< HEAD
-    m_Colors: []
-=======
     m_Colors:
     - _color: {r: 0, g: 0.34083128, b: 1, a: 1}
->>>>>>> c3b0f08511e2e43fcee309d504dcd7e3c1ee3b35
