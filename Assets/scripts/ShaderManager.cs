@@ -36,7 +36,7 @@ public class ShaderManager : MonoBehaviour
     private basicCharacter characterScript;
     public GameMode gameModeScript;
     public Player[] playerScript;
-  
+
 
     #endregion
 
@@ -64,9 +64,16 @@ public class ShaderManager : MonoBehaviour
         greenPlayer = gameModeScript.players[2].activeCharacterInScene;
         yellowPlayer = gameModeScript.players[3].activeCharacterInScene;
 
-      
-        ColorChangerFFA();
-        ColorChangerKOTH();
+        //if (GameModeNames.FreeForAll)
+        //{
+        //    ColorChangerFFA();
+        //}
+        //else
+        //{
+        //    ColorChangerKOTH();
+        //}
+
+
 
 
     }
@@ -191,7 +198,7 @@ public class ShaderManager : MonoBehaviour
             greenPlayer.GetComponent<Renderer>().material = greenHolo;
 
         }
-        else if(FFAScript.playerScores[2] < FFAScript.playerScores[3])
+        else if (FFAScript.playerScores[2] < FFAScript.playerScores[3])
         {
             greenPlayer.GetComponent<Renderer>().material = standardMat;
 
@@ -245,7 +252,7 @@ public class ShaderManager : MonoBehaviour
     }
     void ColorChangerKOTH()
     {
-    
+
         #region Red Player
 
         ////Red Player
