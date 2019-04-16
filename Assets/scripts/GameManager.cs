@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject spoofedPlayerData;
 
-    public enum GameMode { freeForAll, oddBall};
+    public enum GameMode { freeForAll, koth};
 
     public int winningPlayerID;
 
